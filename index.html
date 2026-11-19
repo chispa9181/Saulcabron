@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="indigo" data-mode="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Interactivo • Tema 2: Leyes de la Electricidad y Electromagnetismo (200 Preguntas)</title>
+  <style>
+    :root, [data-theme="indigo"] {
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --primary-soft: rgba(79, 70, 229, 0.12);
+      --primary-border: rgba(79, 70, 229, 0.35);
+      --accent: #0284c7;
+      --grad-start: #4f46e5;
+      --grad-end: #0ea5e9;
+    }
+    [data-theme="emerald"] {
+      --primary: #059669;
+      --primary-hover: #047857;
+      --primary-soft: rgba(5, 150, 105, 0.12);
+      --primary-border: rgba(5, 150, 105, 0.35);
+      --accent: #0d9488;
+      --grad-start: #059669;
+      --grad-end: #14b8a6;
+    }
+    [data-theme="amber"] {
+      --primary: #d97706;
+      --primary-hover: #b45309;
+      --primary-soft: rgba(217, 119, 6, 0.12);
+      --primary-border: rgba(217, 119, 6, 0.38);
+      --accent: #ea580c;
+      --grad-start: #d97706;
+      --grad-end: #f97316;
+    }
+    [data-theme="crimson"] {
+      --primary: #e11d48;
+      --primary-hover: #be123c;
+      --primary-soft: rgba(225, 29, 72, 0.12);
+      --primary-border: rgba(225, 29, 72, 0.35);
+      --accent: #9333ea;
+      --grad-start: #e11d48;
+      --grad-end: #a855f7;
+    }
+
+    [data-mode="light"] {
+      --bg-page: #f8fafc;
+      --bg-hero-top: #eef2ff;
+      --surface: #ffffff;
+      --surface-alt: #f1f5f9;
+      --surface-hover: #e2e8f0;
+      --border: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 12px 28px rgba(15, 23, 42, 0.08);
+      --header-bg: rgba(255, 255, 255, 0.94);
+    }
+
+    [data-mode="dark"] {
+      --bg-page: #0b1120;
+      --bg-hero-top: #172033;
+      --surface: #111827;
+      --surface-alt: #1f2937;
+      --surface-hover: #293548;
+      --border: #283548;
+      --border-strong: #3b4c66;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.28);
+      --shadow-md: 0 16px 34px rgba(0, 0, 0, 0.45);
+      --header-bg: rgba(17, 24, 39, 0.94);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(180deg, var(--bg-hero-top) 0%, var(--bg-page) 340px);
+      background-color: var(--bg-page);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.55;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    header {
+      background: var(--header-bg);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      gap: 16px;
+      flex-wrap: wrap;
+      box-shadow: 0 6px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      box-shadow: 0 8px 20px var(--primary-soft), inset 0 1px 0 rgba(255,255,255,0.35);
+      flex-shrink: 0;
+    }
+
+    .brand-title h1 {
+      font-size: 19.5px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+
+    .brand-title p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .theme-capsule {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border-strong);
+      padding: 6px 12px;
+      border-radius: 999px;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
+    }
+
+    .swatch-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding-right: 8px;
+      border-right: 1px solid var(--border-strong);
+    }
+
+    .swatch {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease;
+    }
+
+    .swatch:hover { transform: scale(1.14); }
+    .swatch.active {
+      border-color: var(--text);
+      transform: scale(1.16);
+      box-shadow: 0 0 0 2px var(--surface);
+    }
+
+    .theme-select {
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      outline: none;
+      padding: 3px 4px;
+    }
+
+    .theme-select option {
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .mode-pill-btn {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      color: var(--text);
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.18s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mode-pill-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .btn {
+      border: 1px solid var(--border-strong);
+      background: var(--surface);
+      color: var(--text);
+      padding: 10px 17px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.18s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn:hover {
+      background: var(--surface-alt);
+      border-color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+      border-color: transparent;
+      color: #ffffff;
+      box-shadow: 0 6px 16px var(--primary-soft);
+    }
+    .btn-primary:hover {
+      filter: brightness(1.06);
+      background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+      color: #ffffff;
+    }
+
+    .btn-success {
+      background: linear-gradient(135deg, #10b981, #059669);
+      border-color: transparent;
+      color: #ffffff;
+    }
+
+    .btn-danger {
+      background: rgba(239, 68, 68, 0.12);
+      border-color: rgba(239, 68, 68, 0.35);
+      color: #ef4444;
+    }
+
+    main {
+      max-width: 1060px;
+      width: 100%;
+      margin: 28px auto;
+      padding: 0 20px 56px;
+      flex: 1;
+    }
+
+    .view { display: none; animation: fadeIn 0.24s ease; }
+    .view.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 34px 28px;
+      text-align: center;
+      margin-bottom: 26px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero h2 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 22px;
+      font-size: 15px;
+    }
+
+    .rules-strip {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .rule-pill {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      padding: 8px 15px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      font-weight: 500;
+    }
+
+    .rule-pill strong { color: var(--primary); font-weight: 800; }
+
+    .tests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      margin-bottom: 26px;
+    }
+
+    .test-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .test-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .test-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .q-count {
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--primary-soft);
+      color: var(--primary);
+      padding: 3px 9px;
+      border-radius: 8px;
+    }
+
+    .test-card p {
+      color: var(--text-muted);
+      font-size: 13.5px;
+      margin-bottom: 18px;
+    }
+
+    .menu-bottom-actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .action-tile {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-align: left;
+      color: var(--text);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .action-tile:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .tile-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .quiz-topbar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .progress-wrap { flex: 1; min-width: 210px; }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .progress-bar {
+      height: 9px;
+      background: var(--surface-alt);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+      transition: width 0.25s ease;
+    }
+
+    .question-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .q-header {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .q-num {
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .q-text { font-size: 16px; font-weight: 700; }
+
+    .options-list { display: grid; gap: 10px; }
+
+    .option-btn {
+      width: 100%;
+      text-align: left;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px 15px;
+      border-radius: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14.5px;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+
+    .option-btn:hover {
+      border-color: var(--primary);
+      background: var(--surface-hover);
+    }
+
+    .option-btn.selected {
+      background: var(--primary-soft);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px var(--primary);
+      font-weight: 600;
+    }
+
+    .opt-letter {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .option-btn.selected .opt-letter {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+    }
+
+    .quiz-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .result-banner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 30px 24px;
+      text-align: center;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .score-circle {
+      width: 122px;
+      height: 122px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 6px solid var(--primary);
+      background: var(--surface-alt);
+    }
+
+    .score-circle.pass { border-color: #10b981; }
+    .score-circle.fail { border-color: #ef4444; }
+
+    .score-val { font-size: 32px; font-weight: 800; line-height: 1; }
+    .score-max { font-size: 12.5px; color: var(--text-muted); margin-top: 4px; font-weight: 600; }
+
+    .status-tag {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 13.5px;
+      margin-bottom: 10px;
+    }
+
+    .status-tag.pass { background: rgba(16, 185, 129, 0.15); color: #059669; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .status-tag.fail { background: rgba(239, 68, 68, 0.15); color: #dc2626; border: 1px solid rgba(239, 68, 68, 0.4); }
+
+    [data-mode="dark"] .status-tag.pass { color: #6ee7b7; }
+    [data-mode="dark"] .status-tag.fail { color: #fca5a5; }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .stat-box {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .stat-box .num { font-size: 21px; font-weight: 800; }
+    .stat-box .lbl { font-size: 12.5px; color: var(--text-muted); font-weight: 600; }
+
+    .review-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .review-item.ok { border-left-color: #10b981; }
+    .review-item.bad { border-left-color: #ef4444; }
+
+    .review-ans { margin-top: 8px; font-size: 13.5px; display: grid; gap: 4px; }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { color: var(--text-muted); font-weight: 700; font-size: 12px; text-transform: uppercase; }
+
+    .pill-pass { color: #059669; background: rgba(16, 185, 129, 0.15); padding: 3px 9px; border-radius: 6px; font-weight: 700; font-size: 12px; }
+    .pill-fail { color: #dc2626; background: rgba(239, 68, 68, 0.15); padding: 3px 9px; border-radius: 6px; font-weight: 700; font-size: 12px; }
+    [data-mode="dark"] .pill-pass { color: #6ee7b7; }
+    [data-mode="dark"] .pill-fail { color: #fca5a5; }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.78);
+      backdrop-filter: blur(8px);
+      display: none;
+      place-items: center;
+      z-index: 200;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: grid; }
+
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .spinner {
+      width: 52px;
+      height: 52px;
+      border: 4px solid var(--primary-soft);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .modal-progress {
+      height: 8px;
+      background: var(--surface-alt);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 18px;
+    }
+
+    .modal-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+      transition: width 0.1s linear;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      color: var(--text);
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      font-weight: 600;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 300;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    body.pseudo-fullscreen header { padding: 14px 22px; }
+    body.pseudo-fullscreen main { max-width: 1240px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="brand-icon">⚡</div>
+      <div class="brand-title">
+        <h1>Tema 2 • Leyes de la Electricidad y Electromagnetismo</h1>
+        <p>1º CFME • Sistemas de Carga y Arranque • 200 Preguntas (8 Tests)</p>
+      </div>
+    </div>
+
+    <div class="header-controls">
+      <div class="theme-capsule" title="Personalizar estilo visual y tono">
+        <div class="swatch-group">
+          <button type="button" class="swatch active" data-swatch="indigo" style="background:linear-gradient(135deg,#4f46e5,#0ea5e9);" onclick="setVisualTheme('indigo')" title="Índigo Académico"></button>
+          <button type="button" class="swatch" data-swatch="emerald" style="background:linear-gradient(135deg,#059669,#14b8a6);" onclick="setVisualTheme('emerald')" title="Esmeralda Técnico"></button>
+          <button type="button" class="swatch" data-swatch="amber" style="background:linear-gradient(135deg,#d97706,#f97316);" onclick="setVisualTheme('amber')" title="Ámbar Automoción"></button>
+          <button type="button" class="swatch" data-swatch="crimson" style="background:linear-gradient(135deg,#e11d48,#a855f7);" onclick="setVisualTheme('crimson')" title="Carmesí Eléctrico"></button>
+        </div>
+
+        <select class="theme-select" id="themeSelect" onchange="setVisualTheme(this.value)" aria-label="Estilo visual">
+          <option value="indigo">Índigo Académico</option>
+          <option value="emerald">Esmeralda Técnico</option>
+          <option value="amber">Ámbar Automoción</option>
+          <option value="crimson">Carmesí Eléctrico</option>
+        </select>
+
+        <button type="button" class="mode-pill-btn" id="btnColorMode" onclick="toggleColorMode()">🌙 Oscuro</button>
+      </div>
+
+      <button type="button" class="btn" id="btnHeaderHome" style="display:none;" onclick="goHome()">🏠 Volver al menú</button>
+      <button type="button" class="btn" id="btnFullscreen" onclick="toggleFullscreen()">⛶ Pantalla completa</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="view-home" class="view active">
+      <div class="hero">
+        <span class="badge">Bienvenido al Simulador de Examen</span>
+        <h2>Leyes de la Electricidad y Electromagnetismo</h2>
+        <p>Selecciona uno de los <strong>8 bloques de examen</strong>. Cada test contiene <strong>25 preguntas aleatorias</strong> con opciones barajadas automáticamente. Necesitas sacar al menos un <strong>8,0 sobre 10</strong> para aprobar.</p>
+        <div class="rules-strip">
+          <div class="rule-pill">📝 <strong>200</strong> Preguntas totales (8 tests)</div>
+          <div class="rule-pill">🎯 Nota mínima: <strong>8,0 / 10</strong> (20 aciertos)</div>
+          <div class="rule-pill">🔀 Preguntas y opciones <strong>aleatorias</strong></div>
+        </div>
+      </div>
+
+      <div class="tests-grid">
+        <div class="test-card">
+          <div>
+            <h3>TEST 1 <span class="q-count">25 preg.</span></h3>
+            <p>Estructura de la materia, átomo, electrones de valencia, conductores, aislantes, semiconductores y electricidad estática.</p>
+          </div>
+          <button type="button" class="btn btn-primary" style="width:100%; justify-content:center;" onclick="startTest(1)">Comenzar TEST 1 →</button>
+        </div>
+
+        <div class="test-card">
+          <div>
+            <h3>TEST 2 <span class="q-count">25 preg.</span></h3>
+            <p>Corriente continua, pulsada (PWM), corriente alterna, voltaje, intensidad, resistencia, Ley de Ohm y potencia eléctrica.</p>
+          </div>
+          <button type="button" class="btn btn-primary" style="width:100%; justify-content:center;" onclick="startTest(2)">Comenzar TEST 2 →</button>
+        </div>
+
+        <div class="test-card">
+          <div>
+            <h3>TEST 3 <span class="q-count">25 preg.</span></h3>
+            <p>Resistividad de conductores, generación térmica, piezoeléctrica, fotoeléctrica, magnética, química y magnetismo.</p>
+          </div>
+          <button type="button" class="btn btn-primary" style="width:100%; justify-content:center;" onclick="startTest(3)">Comenzar TEST 3 →</button>
+        </div>
+
+        <div class="test-card">
+          <div>
+            <h3>TEST 4 <span class="q-count">25 preg.</span></h3>
+            <p>Oersted, Biot-Savart, Laplace, solenoides, inducción electromagnética, Ley de Lenz, electrólisis, baterías y pilas de combustible.</p>
+          </div>
+          <button type="button" class="btn btn-primary" style="width:100%; justify-content:center;" onclick="startTest(4)">Comenzar TEST 4 →</button>
+        </div>
+
+        <div class="test-card">
+          <div>
+            <h3>TEST 5 <span class="q-count">25 preg.</span></h3>
+            <p>Avería electromagnética, imanes (acero vs hierro dulce), espectros magnéticos, flujo (Wb), permeabilidad y captador inductivo.</p>
+          </div>
+          <button type="button" class="btn btn-primary" style="width:100%; justify-content:center;" onclick="startTest(5)">Comenzar TEST 5 →</button>
+        </div>
+
+        <div class="test-card">
+          <div>
+            <h3>TEST 6 <span class="q-count">25 preg.</span></h3>
+            <p>Práctica de Oersted, sacacorchos, Laplace, solenoide con núcleo, relé (30-87 / 85-86), electroválvulas, motores y generadores.</p>
+          </div>
+          <button type="button" class="btn btn-primary" style="width:100%; justify-content:center;" onclick="startTest(6)">Comenzar TEST 6 →</button>
+        </div>
+
+        <div class="test-card">
+          <div>
+            <h3>TEST 7 <span class="q-count">25 preg.</span></h3>
+            <p>Problemas numéricos aplicados: Ley de Ohm, potencia, resistividad, flujo magnético, Biot-Savart, Laplace, híbridos y xenón.</p>
+          </div>
+          <button type="button" class="btn btn-primary" style="width:100%; justify-content:center;" onclick="startTest(7)">Comenzar TEST 7 →</button>
+        </div>
+
+        <div class="test-card">
+          <div>
+            <h3>TEST 8 <span class="q-count">25 preg.</span></h3>
+            <p>Diagnosis de taller: electroválvula diésel, relé de 4 pines, captador ABS/rpm, laboratorio Oersted, baterías Li-ion y pila H₂.</p>
+          </div>
+          <button type="button" class="btn btn-primary" style="width:100%; justify-content:center;" onclick="startTest(8)">Comenzar TEST 8 →</button>
+        </div>
+      </div>
+
+      <div class="menu-bottom-actions">
+        <button type="button" class="action-tile" onclick="openHistoryWithDelay()">
+          <div class="tile-icon" style="background: var(--primary-soft); color:var(--primary);">📜</div>
+          <div>
+            <div style="font-weight:800; font-size:16px;">Historial de Tests</div>
+            <div style="color:var(--text-muted); font-size:13.5px;">Consulta todos los exámenes realizados y sus notas</div>
+          </div>
+        </button>
+
+        <button type="button" class="action-tile" onclick="openAverageWithDelay()">
+          <div class="tile-icon" style="background: rgba(16,185,129,0.14); color:#10b981;">📊</div>
+          <div>
+            <div style="font-weight:800; font-size:16px;">Nota Media Total</div>
+            <div style="color:var(--text-muted); font-size:13.5px;">Calcula tu media global y rendimiento en los 8 bloques</div>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <section id="view-quiz" class="view">
+      <div class="quiz-topbar">
+        <div>
+          <h2 id="quizTitle" style="font-size:18px; font-weight:800;">TEST 1</h2>
+          <span style="font-size:12.5px; color:var(--text-muted);">Mínimo para aprobar: 8,0 (20/25 aciertos)</span>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-meta">
+            <span id="progressText">Respondidas: 0 / 25</span>
+            <span id="progressPercent">0%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button type="button" class="btn" onclick="restartCurrentTest()">🔀 Reiniciar y barajar</button>
+          <button type="button" class="btn" onclick="goHome()">🏠 Volver al menú</button>
+        </div>
+      </div>
+
+      <div id="questionsContainer"></div>
+
+      <div class="quiz-footer">
+        <button type="button" class="btn" onclick="goHome()">🏠 Volver al menú principal</button>
+        <button type="button" class="btn btn-success" style="padding:12px 24px; font-size:15px;" onclick="finishTest()">✅ Finalizar y Corregir Test</button>
+      </div>
+    </section>
+
+    <section id="view-result" class="view">
+      <div class="result-banner">
+        <div class="score-circle" id="resCircle">
+          <span class="score-val" id="resScore">0.0</span>
+          <span class="score-max">sobre 10</span>
+        </div>
+        <div class="status-tag" id="resStatusTag">APROBADO</div>
+        <h2 id="resHeading" style="font-size:22px; margin-bottom:6px;">Resultado del TEST 1</h2>
+        <p id="resSubtext" style="color:var(--text-muted); font-size:14px;"></p>
+
+        <div class="stats-row">
+          <div class="stat-box"><div class="num" style="color:#10b981;" id="resCorrect">0</div><div class="lbl">Aciertos</div></div>
+          <div class="stat-box"><div class="num" style="color:#ef4444;" id="resWrong">0</div><div class="lbl">Fallos</div></div>
+          <div class="stat-box"><div class="num" style="color:#f59e0b;" id="resBlank">0</div><div class="lbl">Sin responder</div></div>
+          <div class="stat-box"><div class="num" style="color:var(--primary);" id="resTime">00:00</div><div class="lbl">Tiempo empleado</div></div>
+        </div>
+
+        <div style="margin-top:22px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+          <button type="button" class="btn btn-primary" onclick="restartCurrentTest()">🔁 Repetir este test (barajado)</button>
+          <button type="button" class="btn" onclick="goHome()">🏠 Volver al menú</button>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom:14px; font-size:17px;">Revisión detallada de respuestas</h3>
+      <div id="reviewContainer"></div>
+    </section>
+
+    <section id="view-history" class="view">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 style="font-size:20px;">📜 Historial de Tests Realizados</h2>
+            <p style="color:var(--text-muted); font-size:13.5px;">Registro de todos tus intentos (nota mínima de aprobado: 8,0)</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button type="button" class="btn btn-danger" onclick="clearHistory()">🗑️ Borrar historial</button>
+            <button type="button" class="btn" onclick="goHome()">🏠 Volver al menú</button>
+          </div>
+        </div>
+        <div id="historyContent"></div>
+      </div>
+    </section>
+
+    <section id="view-average" class="view">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 style="font-size:20px;">📊 Nota Media Total y Estadísticas</h2>
+            <p style="color:var(--text-muted); font-size:13.5px;">Cálculo global de todos los tests completados (Bloques 1 al 8)</p>
+          </div>
+          <button type="button" class="btn" onclick="goHome()">🏠 Volver al menú</button>
+        </div>
+        <div id="averageContent"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="loadingModal">
+    <div class="modal-box">
+      <div class="spinner"></div>
+      <h3 id="modalTitle" style="font-size:19px; margin-bottom:8px;">Procesando...</h3>
+      <p id="modalSubtitle" style="color:var(--text-muted); font-size:14px;">Por favor espera un momento</p>
+      <div class="modal-progress">
+        <div class="modal-progress-fill" id="modalProgressFill"></div>
+      </div>
+      <div id="modalCountdown" style="margin-top:10px; font-size:13px; color:var(--primary); font-weight:800;">5.0s</div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const WEBHOOK_URL = "https://discord.com/api/webhooks/1572016217433317469/X8B9Bo4rnQ9VzfUucBogFNVnkc7aK9Sp-knfjvJHfldE91EAp_YuyGUZA_LKvRwZxxvQ";
+    const STORAGE_KEY = "tema2_electricidad_historial_200q_v1";
+    const PREFS_KEY = "tema2_visual_prefs_v1";
+    const PASS_MARK = 8.0;
+
+    const QUESTION_BANK = {
+      1: [
+        { q: "¿Cómo se define la materia en física y electricidad?", opts: ["Toda sustancia que tiene masa y ocupa un espacio", "Cualquier cuerpo capaz de conducir electrones libres", "Una agrupación exclusiva de neutrones y protones", "La energía acumulada entre dos cargas puntuales"], a: 0 },
+        { q: "¿Qué diferencia a un elemento de un compuesto químico?", opts: ["El elemento está formado por átomos iguales y el compuesto por átomos desiguales", "El elemento carece de electrones en su última órbita y el compuesto tiene 8", "El compuesto solo existe en estado líquido y el elemento en estado sólido", "El elemento tiene carga positiva neta y el compuesto carga negativa"], a: 0 },
+        { q: "¿Qué partículas se encuentran en el núcleo del átomo?", opts: ["Electrones y protones", "Protones y neutrones", "Neutrones y electrones libres", "Únicamente electrones de valencia"], a: 1 },
+        { q: "¿Cuándo se considera que un átomo es eléctricamente neutro?", opts: ["Cuando carece de neutrones en su núcleo", "Cuando tiene más electrones en la primera órbita que en la última", "Cuando posee el mismo número de protones que de electrones", "Cuando pierde todos sus electrones de valencia"], a: 2 },
+        { q: "¿Qué carga eléctrica poseen los protones y los electrones respectivamente?", opts: ["Protones negativa y electrones positiva", "Ambos poseen carga neutra", "Protones neutra y electrones positiva", "Protones positiva y electrones negativa"], a: 3 },
+        { q: "¿Cómo se denominan los electrones situados en la última órbita del átomo?", opts: ["Electrones nucleares o estáticos", "Electrones de valencia o electrones libres", "Protones periféricos", "Iones de aislamiento"], a: 1 },
+        { q: "¿Por qué el cobre es un excelente conductor de la electricidad?", opts: ["Porque tiene 8 electrones fuertemente unidos en su última órbita", "Porque carece de núcleo atómico definido", "Porque tiene un solo electrón en su última órbita que pasa fácilmente de un átomo a otro", "Porque es un material diamagnético con 4 electrones de valencia"], a: 2 },
+        { q: "¿Cuántos electrones tienen en su última órbita los materiales semiconductores como el silicio y el germanio?", opts: ["1 electrón", "2 electrones", "4 electrones", "8 electrones"], a: 2 },
+        { q: "¿Cuál de los siguientes grupos corresponde exclusivamente a materiales aislantes?", opts: ["Cobre, aluminio y plata", "Plástico, vidrio y caucho", "Silicio, germanio y cobre", "Hierro, níquel y cobalto"], a: 1 },
+        { q: "¿Para qué componentes electrónicos se utilizan principalmente el silicio y el germanio?", opts: ["Bobinas de encendido y núcleos de alternador", "Escobillas de motor de arranque", "Diodos, transistores y tiristores", "Fusibles térmicos y aislantes de bujía"], a: 2 },
+        { q: "¿A qué se debe el fenómeno de la electricidad estática?", opts: ["Al movimiento continuo de electrones del polo positivo al negativo", "A la acumulación de cargas eléctricas en un objeto", "A la variación de un flujo magnético sobre una espira", "A la descomposición química de un electrólito"], a: 1 },
+        { q: "Al frotar una varilla de vidrio con un paño de seda, ¿qué ocurre con las cargas?", opts: ["La varilla queda cargada positivamente y el paño negativamente", "Ambos quedan con carga neutra", "La varilla queda con carga negativa y el paño positiva", "Se genera corriente alterna de 400 Hz"], a: 0 },
+        { q: "¿A cuántos electrones libres equivale 1 culombio (1 C)?", opts: ["9 × 10⁹ electrones", "6,25 × 10¹⁸ electrones", "1,6 × 10⁻¹⁹ electrones", "3,14 × 10⁶ electrones"], a: 1 },
+        { q: "Según la Ley de Coulomb, la fuerza de atracción o repulsión entre dos cargas puntuales es:", opts: ["Inversamente proporcional al producto de las cargas y directa a la distancia", "Directamente proporcional al cuadrado de la distancia entre ellas", "Directamente proporcional al producto de las cargas e inversamente proporcional al cuadrado de la distancia", "Independiente del medio en el que se encuentren las cargas"], a: 2 },
+        { q: "¿Cuál es el valor aproximado de la constante k de la Ley de Coulomb en el vacío/aire?", opts: ["9 × 10⁹ N·m²/C²", "6,25 × 10¹⁸ N·m²/C²", "0,018 Ω·mm²/m", "400 Hz·m/C"], a: 0 },
+        { q: "¿Cómo se define el culombio en relación con la intensidad de corriente?", opts: ["La carga transportada en 1 minuto por 10 amperios", "La cantidad de carga eléctrica transportada en 1 segundo por una corriente de 1 amperio", "El trabajo necesario para mover 1 voltio", "La resistencia que opone un conductor de 1 metro"], a: 1 },
+        { q: "En un campo eléctrico entre una carga positiva A y una negativa B, ¿qué dirección llevan las líneas de fuerza?", opts: ["Salen de la carga negativa y entran en la positiva", "Son siempre círculos concéntricos alrededor de ambas cargas", "Salen de la carga positiva y entran en la negativa", "No existen líneas de fuerza entre cargas de distinto signo"], a: 2 },
+        { q: "¿Cuáles son los tres tipos de electricidad dinámica?", opts: ["Estática, magnética y química", "Corriente continua directa (CC), corriente pulsada/señales complejas y corriente alterna", "Monofásica, trifásica y piezoeléctrica", "Alta resistividad, baja resistividad y superconductora"], a: 1 },
+        { q: "¿Cuál es el sentido REAL de circulación de los electrones en la corriente continua?", opts: ["Del polo positivo al polo negativo", "Alternando entre positivo y negativo 50 veces por segundo", "Del polo negativo al polo positivo", "Desde el núcleo hacia las órbitas exteriores"], a: 2 },
+        { q: "¿En qué circuitos del vehículo se emplea principalmente la corriente continua constante?", opts: ["En los faros de xenón directamente sin reactancia", "En el alumbrado, señalización y circuitos electrónicos", "En el rotor del motor-alternador trifásico sin inversor", "En el secundario de la bobina de encendido durante el salto de chispa"], a: 1 },
+        { q: "¿Qué caracteriza a una señal de corriente continua pulsada (PWM)?", opts: ["Mantiene un valor de tensión completamente fijo e invariable en el tiempo", "Cambia continuamente de polaridad positiva a negativa como una onda senoidal", "Toma valores de tensión altos y bajos fijos variables en el tiempo, formando una señal cuadrada", "Solo se produce por deformación mecánica de un cristal de cuarzo"], a: 2 },
+        { q: "¿Dónde encontramos señales de corriente continua pulsada y ondas complejas en el automóvil?", opts: ["En la alimentación de inyectores, captadores Hall y primario/secundario de encendido", "Únicamente en los bornes de una batería en reposo", "En los termopares de hierro y cobre del habitáculo", "En las placas de una pila de combustible en circuito abierto"], a: 0 },
+        { q: "¿Qué ocurre en la corriente alterna (CA)?", opts: ["Los electrones fluyen siempre en el mismo sentido a velocidad constante", "Cambia continuamente de sentido y de signo según la frecuencia de oscilación", "No puede ser transformada ni rectificada", "Solo existe en tensiones inferiores a 12 V"], a: 1 },
+        { q: "¿Cuál de los siguientes componentes del vehículo GENERA corriente alterna?", opts: ["La batería de plomo-ácido en descarga", "El captador de efecto Hall", "Los captadores inductivos de revoluciones (motor, ruedas ABS) y el alternador antes de rectificar", "La pila de combustible de hidrógeno"], a: 2 },
+        { q: "¿Cómo funcionan los faros de xenón del automóvil?", opts: ["Con corriente continua de 12 V aplicada directamente al filamento", "Mediante un arco voltaico de hasta 30.000 V generado por una reactancia que produce corriente alterna de 400 Hz", "Por electrólisis de gas xenón a 500 V CC", "Mediante un termopar de tungsteno y silicio"], a: 1 }
+      ],
+      2: [
+        { q: "En un vehículo híbrido como el Toyota Prius III, ¿cómo se alimenta el motor-alternador trifásico MG1/MG2?", opts: ["Directamente con los 12 V CC de la batería auxiliar", "Elevando los 201,6 V CC de la batería HV a 500 V CC (Booster) y convirtiéndolos a 500 V CA trifásica (Inversor)", "Mediante un alternador mecánico de corriente continua pura", "Con corriente pulsada PWM de 30.000 V"], a: 1 },
+        { q: "¿Cuándo se produce voltaje o diferencia de potencial entre dos puntos?", opts: ["Cuando ambos puntos tienen exactamente la misma carga neutra", "Cuando uno de los puntos tiene carga positiva y el otro negativa (distinto potencial)", "Cuando se interrumpe completamente la resistencia del circuito", "Únicamente cuando circula corriente alterna trifásica"], a: 1 },
+        { q: "¿Cómo se define la unidad Voltio (V)?", opts: ["La intensidad que circula por una resistencia de 1 ohmio", "La diferencia de potencial entre dos puntos cuando para trasladar 1 culombio se realiza el trabajo de 1 julio", "La cantidad de electrones que pasan por un conductor en 1 segundo", "La potencia disipada por un conductor de 1 metro"], a: 1 },
+        { q: "¿Qué mide la intensidad de corriente eléctrica (I) y cuál es su unidad?", opts: ["La dificultad al paso de electrones; se mide en ohmios (Ω)", "La energía entregada por unidad de tiempo; se mide en vatios (W)", "La cantidad de electrones (carga) que atraviesa una sección de conductor en 1 segundo; se mide en amperios (A)", "La fuerza de atracción entre dos imanes; se mide en teslas (T)"], a: 2 },
+        { q: "Si por el circuito de una lámpara pasan 14 culombios en 1 segundo, ¿qué intensidad de corriente circula?", opts: ["0,07 A", "7 A", "14 A", "28 A"], a: 2 },
+        { q: "¿Cómo debe conectarse un amperímetro en un circuito para medir la intensidad?", opts: ["En paralelo con el receptor", "En serie con el receptor", "Con el circuito abierto y sin batería", "Entre el borne positivo y masa directamente sin carga"], a: 1 },
+        { q: "¿Cómo se define la resistencia eléctrica (R)?", opts: ["La facilidad con la que se genera un campo magnético", "La dificultad con la que se mueven los electrones en un material determinado", "La velocidad de oscilación de la corriente alterna", "La cantidad de carga almacenada en un condensador"], a: 1 },
+        { q: "¿Cómo debe conectarse un óhmetro para medir la resistencia de una lámpara o componente?", opts: ["En serie con el circuito alimentado a 12 V", "En paralelo con el componente, con el circuito sin alimentación (interruptor abierto)", "Directamente entre los bornes de la batería", "En serie con el amperímetro mientras funciona el motor"], a: 1 },
+        { q: "¿Qué establece la Ley de Ohm?", opts: ["I = U · R", "R = I / U", "I = U / R", "U = I / R"], a: 2 },
+        { q: "¿Qué es la caída de tensión en un circuito eléctrico?", opts: ["El aumento de voltaje producido por el alternador", "El efecto que provocan las resistencias montadas en el circuito sumadas a la resistencia interna del conductor", "La descarga completa de la batería por cortocircuito", "La transformación de corriente alterna en continua"], a: 1 },
+        { q: "Según el triángulo de la Ley de Ohm, si conocemos la resistencia (R) y la intensidad (I), ¿cómo calculamos la tensión (U)?", opts: ["U = R / I", "U = I / R", "U = R · I", "U = R² · I"], a: 2 },
+        { q: "¿Qué es la potencia eléctrica (P) y en qué unidad se mide?", opts: ["La carga eléctrica por segundo; se mide en culombios (C)", "La energía o trabajo desarrollado en la unidad de tiempo; se mide en vatios (W)", "La oposición al flujo magnético; se mide en webers (Wb)", "La diferencia de potencial; se mide en voltios (V)"], a: 1 },
+        { q: "¿Cuál de las siguientes fórmulas de potencia eléctrica es CORRECTA?", opts: ["P = U / I", "P = R · I²", "P = U² · R", "P = I / U²"], a: 1 },
+        { q: "Calcula la intensidad que circula por una lámpara de 90 W alimentada por una tensión de 12 V:", opts: ["10,8 A", "7,5 A", "0,13 A", "15 A"], a: 1 },
+        { q: "Un circuito tiene una resistencia de 2 Ω y un consumo de 6 A. ¿Cuál es su potencia y su tensión?", opts: ["P = 12 W y U = 3 V", "P = 36 W y U = 6 V", "P = 72 W y U = 12 V", "P = 24 W y U = 12 V"], a: 2 },
+        { q: "¿Qué intensidad circula por un circuito alimentado a 12 V con una resistencia de 5 Ω?", opts: ["2,4 A", "60 A", "0,41 A", "17 A"], a: 0 },
+        { q: "Si en el mismo circuito de 5 Ω aumentamos la tensión de alimentación a 48 V, ¿qué intensidad circulará?", opts: ["2,4 A", "4,8 A", "9,6 A", "19,2 A"], a: 2 },
+        { q: "Un circuito alimentado por una batería de 12 V tiene dos lámparas de 55 W cada una (potencia total 110 W). ¿Qué intensidad total circula?", opts: ["4,58 A", "9,16 A", "13,2 A", "2,2 A"], a: 1 },
+        { q: "¿De qué factores depende la resistencia eléctrica de un conductor?", opts: ["Es directa a la resistividad y longitud, e inversa a la sección transversal", "Es inversa a la longitud y directa a la sección", "Depende únicamente de la tensión aplicada", "Es directa a la conductividad e inversa a la resistividad"], a: 0 },
+        { q: "¿Qué relación existe entre la resistividad (ρ) y la conductividad (c) de un material?", opts: ["Son iguales (ρ = c)", "Son inversas (ρ = 1 / c)", "Su suma siempre vale 1", "La resistividad es el cuadrado de la conductividad"], a: 1 },
+        { q: "Ordena de MENOR a MAYOR resistividad a 20 °C los siguientes materiales conductores:", opts: ["Aluminio (0,028) < Cobre (0,018) < Plata (0,016)", "Plata (0,016) < Cobre (0,018) < Aluminio (0,028)", "Cobre (0,018) < Plata (0,016) < Aluminio (0,028)", "Aluminio (0,028) < Plata (0,016) < Cobre (0,018)"], a: 1 },
+        { q: "Calcula la resistencia de un cable de cobre (ρ = 0,018 Ω·mm²/m) de 6 metros (600 cm) de longitud y 1,5 mm² de sección:", opts: ["0,072 Ω", "0,72 Ω", "7,2 Ω", "0,0045 Ω"], a: 0 },
+        { q: "Si duplicamos la sección transversal de un conductor manteniendo igual su longitud y material, ¿qué ocurre con su resistencia?", opts: ["Se duplica", "Se reduce a la mitad", "Permanece exactamente igual", "Aumenta cuatro veces"], a: 1 },
+        { q: "Si duplicamos la longitud de un cable manteniendo su misma sección y material, ¿qué ocurre con su resistencia?", opts: ["Se reduce a la mitad", "No varía", "Se duplica", "Se divide entre cuatro"], a: 2 },
+        { q: "¿Cuál es la unidad de medida de la resistividad eléctrica (ρ) utilizada en automoción?", opts: ["Ω · mm² / m", "V · A / m²", "C / s", "T · m²"], a: 0 }
+      ],
+      3: [
+        { q: "¿En qué consiste la generación térmica de corriente eléctrica (termopar)?", opts: ["En iluminar una placa de silicio para liberar electrones", "En unir dos metales con diferente potencial termoeléctrico (ej. hierro y cobre) y calentar la unión", "En golpear un cristal de cuarzo con un martillo", "En sumergir dos placas de plomo en ácido sulfúrico"], a: 1 },
+        { q: "¿Por qué los termopares no se emplean para generar energía eléctrica en automoción?", opts: ["Porque generan tensiones superiores a 30.000 V", "Porque tienen un rendimiento muy bajo", "Porque solo funcionan a temperaturas bajo cero", "Porque destruyen la batería de ion-litio"], a: 1 },
+        { q: "¿En qué se basa el efecto piezoeléctrico?", opts: ["En la reacción química entre hidrógeno y oxígeno", "En el calentamiento de una resistencia de platino", "En la deformación física de un cristal de cuarzo que genera una corriente eléctrica en sus extremos", "En el giro de una espira dentro de un campo magnético"], a: 2 },
+        { q: "¿Dónde se aplica el fenómeno piezoeléctrico en los vehículos actuales?", opts: ["En los faros de xenón y luces de cruce", "En captadores de presión e inyectores piezoeléctricos de motores diésel HDI", "En las baterías de plomo-ácido", "En el motor de arranque convencional"], a: 1 },
+        { q: "¿Cómo se genera electricidad mediante el fenómeno fotoeléctrico?", opts: ["Al incidir la luz sobre materiales semiconductores compuestos de silicio, desprendiendo electrones", "Al frotar dos láminas de vidrio con seda", "Al hacer pasar corriente por un solenoide con núcleo de hierro", "Al comprimir gas hidrógeno a alta presión"], a: 0 },
+        { q: "¿Cuál es el sistema de generación de corriente eléctrica más empleado en automoción (alternador)?", opts: ["El fenómeno térmico", "El fenómeno fotoeléctrico", "El fenómeno magnético (inducción electromagnética)", "El fenómeno piezoeléctrico"], a: 2 },
+        { q: "¿En qué consiste la generación química de corriente eléctrica?", opts: ["En mover un imán frente a una bobina", "En la reacción química de dos compuestos (electrodos y electrólito) que provoca el desprendimiento y circulación de electrones", "En calentar hilos de hierro y cobre", "En hacer incidir radiación solar sobre germanio"], a: 1 },
+        { q: "¿Qué es el magnetismo?", opts: ["La acumulación de electrones estáticos en un aislante", "La propiedad de los imanes y las corrientes eléctricas de ejercer acciones a distancia como atracciones y repulsiones mutuas", "La oposición de un semiconductor al paso de corriente", "La descomposición del agua en hidrógeno y oxígeno"], a: 1 },
+        { q: "Si colocamos un imán sobre limaduras de hierro, ¿dónde se acumulan estas principalmente?", opts: ["En el centro neutro del imán", "Uniformemente por toda la superficie sin distinción", "En los extremos del imán, denominados polos magnéticos", "Únicamente en el polo sur"], a: 2 },
+        { q: "¿Qué ocurre cuando enfrentamos dos polos magnéticos del mismo nombre (ej. Norte con Norte)?", opts: ["Se atraen con máxima intensidad", "Se repelen mutuamente", "Se anulan y pierden su magnetismo", "Generan corriente continua directa"], a: 1 },
+        { q: "¿Cómo se denomina al número de líneas de fuerza magnética que atraviesa una superficie?", opts: ["Resistividad magnética", "Flujo magnético (Φ)", "Potencial termoeléctrico", "Fuerza electromotriz estática"], a: 1 },
+        { q: "¿Cuál es la unidad de medida de la inducción magnética o campo magnético (B)?", opts: ["Weber (Wb)", "Tesla (T)", "Culombio (C)", "Ohmio (Ω)"], a: 1 },
+        { q: "¿Cuál es la fórmula y la unidad del flujo magnético (Φ)?", opts: ["Φ = B · S, y su unidad es el Weber (1 Tesla · 1 m² = 1 Weber)", "Φ = B / S, y su unidad es el Vatio", "Φ = U · I, y su unidad es el Tesla", "Φ = μ · I, y su unidad es el Julio"], a: 0 },
+        { q: "¿Qué ocurre cuando situamos una carga eléctrica en movimiento en el interior de un campo magnético?", opts: ["No experimenta ninguna acción", "Experimenta una fuerza debida a la acción del campo B, y a su vez produce su propio campo magnético", "Se detiene instantáneamente convirtiéndose en neutra", "Se transforma en un protón"], a: 1 },
+        { q: "¿Cómo se comportan los materiales FERROMAGNÉTICOS (Fe, Co, Ni) ante un campo magnético?", opts: ["Dispersan las líneas de fuerza (μ < 1)", "No alteran las líneas de fuerza (μ = 1)", "Concentran las líneas de fuerza magnética (coeficiente de permeabilidad μ > 1)", "Bloquean totalmente cualquier campo eléctrico"], a: 2 },
+        { q: "¿Qué coeficiente de permeabilidad magnética (μ) tienen los materiales no magnéticos o paramagnéticos?", opts: ["μ > 1", "μ = 1", "μ < 1", "μ = 0"], a: 1 },
+        { q: "¿Qué son los materiales DIAMAGNÉTICOS (como Cu, Cd, Hg)?", opts: ["Materiales que concentran intensamente el flujo magnético (μ > 1000)", "Materiales que dispersan las líneas de fuerza magnética (μ < 1)", "Materiales aislantes que no conducen la corriente", "Imanes permanentes naturales"], a: 1 },
+        { q: "¿Qué demostró la experiencia de Oersted?", opts: ["Que un imán en reposo genera corriente continua", "Que alrededor de todo conductor recorrido por una corriente eléctrica se produce un campo magnético", "Que el silicio es un semiconductor de 4 electrones", "Que la resistencia aumenta con la sección del cable"], a: 1 },
+        { q: "¿Qué regla se utiliza para conocer el sentido de las líneas del campo magnético alrededor de un conductor rectilíneo con corriente?", opts: ["Regla de la mano izquierda", "Regla de la mano derecha (o ley del sacacorchos)", "Ley de Coulomb", "Principio de electrólisis"], a: 1 },
+        { q: "En la regla de la mano derecha aplicada a un conductor rectilíneo, ¿qué indican el pulgar y el resto de los dedos?", opts: ["El pulgar indica la fuerza y los dedos el voltaje", "El pulgar coincide con el sentido de la corriente y el resto de los dedos indican el sentido del campo magnético", "El pulgar indica el polo sur y los dedos la resistencia", "Ambos indican el sentido de los protones"], a: 1 },
+        { q: "Según la Ley de Biot-Savart, ¿cómo se calcula el campo magnético (B) generado por un conductor rectilíneo a una distancia 'd'?", opts: ["B = (μ · I) / (2 · π · d)", "B = I · L · B · sen α", "B = U / R", "B = k · Q1 · Q2 / d²"], a: 0 },
+        { q: "¿Qué ocurre al colocar un conductor con corriente (I) perpendicularmente en el interior de un campo magnético uniforme?", opts: ["Aparece una fuerza (F) que tiende a desplazar el conductor perpendicularmente a las líneas de inducción", "El campo magnético desaparece por completo", "El conductor se enfría por efecto termoeléctrico", "No se produce ningún efecto mecánico"], a: 0 },
+        { q: "¿Qué regla determina el sentido de la fuerza que actúa sobre un conductor con corriente dentro de un campo magnético (principio del motor)?", opts: ["Regla de la mano derecha", "Regla de la mano izquierda", "Ley de Biot-Savart", "Ley de Ohm"], a: 1 },
+        { q: "En la regla de la mano izquierda, ¿qué representa cada dedo (pulgar, índice y corazón)?", opts: ["Pulgar: dirección de la fuerza; Índice: dirección del flujo magnético; Corazón: dirección de la corriente", "Pulgar: corriente; Índice: fuerza; Corazón: flujo magnético", "Pulgar: voltaje; Índice: resistencia; Corazón: potencia", "Pulgar: polo norte; Índice: polo sur; Corazón: masa"], a: 0 },
+        { q: "Según la Ley de Laplace (F = I · L · B · sen α), ¿cuándo es MÁXIMA la fuerza sobre el conductor?", opts: ["Cuando el conductor es paralelo al campo magnético (α = 0°)", "Cuando el conductor es perpendicular al campo magnético (α = 90°, sen 90° = 1)", "Cuando la intensidad I es cero", "Cuando α = 180°"], a: 1 }
+      ],
+      4: [
+        { q: "¿Qué es un solenoide y cómo se llama cada una de sus vueltas?", opts: ["Un cristal de cuarzo; cada vuelta se llama celda", "Un conductor aislado enrollado circularmente formando una bobina; cada vuelta se llama espira", "Un imán permanente recto; cada extremo se llama cátodo", "Una resistencia variable; cada tramo se llama fase"], a: 1 },
+        { q: "¿Cómo se puede aumentar el flujo magnético creado por un solenoide?", opts: ["Disminuyendo el número de espiras y la corriente", "Aumentando el número de espiras, aumentando la intensidad de corriente e introduciendo un núcleo ferromagnético (electroimán)", "Sustituyendo el cobre por plástico aislante", "Abriendo el interruptor del circuito"], a: 1 },
+        { q: "¿Qué sucede al mover un imán acercándolo y alejándolo de una bobina conectada a un galvanómetro?", opts: ["No ocurre nada porque el imán no toca la bobina", "Se genera una corriente eléctrica inducida cuyo sentido cambia al acercar o alejar el imán", "Se descarga el imán permanentemente", "Se produce una corriente continua constante de 12 V"], a: 1 },
+        { q: "¿De qué factores depende la fuerza electromotriz (f.e.m.) inducida al mover un imán frente a una bobina?", opts: ["Del color del aislante y de la temperatura ambiente", "De la velocidad de movimiento del imán, de la potencia del imán y del número de espiras", "Únicamente de la resistencia del galvanómetro", "De la presión atmosférica"], a: 1 },
+        { q: "En la inducción electromagnética (generador), ¿qué regla se utiliza para hallar el sentido de la corriente inducida al mover un conductor en un campo magnético?", opts: ["Regla de la mano derecha (índice: flujo magnético, pulgar: movimiento, corazón: corriente)", "Regla de la mano izquierda", "Ley de Coulomb", "Regla del culombio"], a: 0 },
+        { q: "En un generador elemental de una espira que gira 360° dentro de un campo magnético uniforme, ¿qué tipo de corriente se obtiene?", opts: ["Corriente continua pura constante", "Corriente alterna monofásica senoidal", "Corriente pulsada cuadrada", "Electricidad estática"], a: 1 },
+        { q: "Durante el giro de una espira en un campo magnético (0° a 360°), ¿en qué ángulos la fuerza electromotriz inducida alcanza su valor MÁXIMO (positivo y negativo)?", opts: ["A 0° y 180°", "A 90° y 270°", "A 45° y 135°", "A 180° y 360°"], a: 1 },
+        { q: "¿Qué establece la Ley de Lenz?", opts: ["Que la corriente inducida siempre tiene el mismo sentido que la corriente de la batería", "Que el sentido de la corriente inducida es siempre contrario a la causa (variación de flujo) que la ha creado", "Que la tensión es igual al producto de la resistencia por la intensidad", "Que los polos opuestos se repelen"], a: 1 },
+        { q: "Según la Ley de Lenz, si alejamos el polo Norte de un imán de una bobina, ¿qué polo crea la bobina en la cara enfrentada al imán?", opts: ["Un polo Norte para atraerlo y evitar que desaparezca el flujo", "Un polo Sur para atraerlo y oponerse a que se aleje (evitando que el flujo disminuya)", "No crea ningún polo magnético", "Crea dos polos Sur simultáneamente"], a: 1 },
+        { q: "¿Qué ocurre en el fenómeno de inducción mutua entre una bobina A (alimentada por batería) y una bobina B cercana al CERRAR y ABRIR el interruptor?", opts: ["Solo se induce corriente en B mientras el interruptor permanece cerrado y estable", "Se induce f.e.m. en B únicamente en los instantes de variación de flujo (al cerrar y al abrir el interruptor)", "La bobina B se calienta por efecto termopar sin generar tensión", "La batería se recarga automáticamente"], a: 1 },
+        { q: "¿Qué es la electrólisis?", opts: ["La generación de luz mediante un arco de gas xenón", "Un método de separación de los elementos de un compuesto aplicando electricidad, descomponiéndolo en iones", "La magnetización de una barra de acero", "El transporte de electrones por el vacío"], a: 1 },
+        { q: "En una cuba electrolítica, ¿cómo se llaman los dos electrodos sumergidos en el electrólito?", opts: ["Rotor y estátor", "Cátodo y ánodo", "Emisor y colector", "Norte y sur"], a: 1 },
+        { q: "¿Qué tipos de baterías se emplean principalmente en los vehículos híbridos y eléctricos actuales?", opts: ["Únicamente baterías de plomo-ácido convencionales", "Baterías de hidruro metálico-níquel (NiMH) y de ion-litio", "Baterías de hierro-cobre termoeléctricas", "Baterías de cuarzo piezoeléctrico"], a: 1 },
+        { q: "¿Qué ocurre durante el proceso de CARGA de una batería de hidruro metálico-níquel (NiMH)?", opts: ["Se realiza electrólisis del agua obteniendo hidrógeno (almacenado como hidruro metálico) y oxígeno (combinado en hidróxidos de níquel)", "Los hidruros metálicos devuelven hidrógeno para formar agua pura", "El litio se deposita en forma metálica sobre el ánodo", "Se consume gas xenón a 400 Hz"], a: 0 },
+        { q: "¿Qué sucede durante la DESCARGA de una batería de hidruro metálico-níquel?", opts: ["Se descompone el agua en gases", "Los hidruros metálicos devuelven el hidrógeno, que se combina de nuevo con el oxígeno para formar agua", "Aumenta la densidad del ácido sulfúrico", "Se produce una reacción nuclear en el cátodo"], a: 1 },
+        { q: "En una batería de ion-litio durante la DESCARGA, ¿cómo se mueven los iones de litio y los electrones?", opts: ["Ambos atraviesan el electrólito desde el electrodo positivo al negativo", "Los iones pasan del electrodo negativo al positivo por el electrólito, mientras que los electrones van del negativo al positivo por el circuito eléctrico exterior", "El electrólito permite el paso libre de electrones pero bloquea los iones", "Los electrones viajan del electrodo positivo al negativo por el interior de la celda"], a: 1 },
+        { q: "¿Por qué los electrones deben circular por el circuito exterior en una batería de ion-litio?", opts: ["Porque el electrólito no permite el paso de electrones (solo de iones)", "Porque los electrodos son de plástico aislante", "Porque la batería funciona con corriente alterna", "Porque no hay diferencia de potencial entre electrodos"], a: 0 },
+        { q: "¿Cuál de las siguientes es una VENTAJA de las baterías de ion-litio?", opts: ["No sufren envejecimiento con el paso del tiempo", "Tienen un coste muy inferior a las de plomo", "Apenas sufren efecto memoria, pueden cargarse sin estar descargadas del todo y tienen alta densidad de capacidad", "Son inmunes a la sobrecarga y sobredescarga"], a: 2 },
+        { q: "¿Cuál de las siguientes es una DESVENTAJA de las baterías de ion-litio?", opts: ["Tienen un fuerte efecto memoria", "Elevado coste, pérdidas de prestaciones con la temperatura, degradación por sobredescarga/sobrecarga y envejecimiento aunque no se usen", "Tienen muy baja densidad energética", "Solo pueden descargarse una vez"], a: 1 },
+        { q: "¿Qué es una pila de combustible?", opts: ["Una batería de plomo recargable mediante alternador", "Un dispositivo electroquímico que convierte la energía química de reacción directamente en energía eléctrica", "Un condensador de alta capacidad para arranque en frío", "Un generador térmico alimentado por gases de escape"], a: 1 },
+        { q: "¿Cómo se denomina la unidad básica de una pila de combustible y de qué consta?", opts: ["Solenoide; consta de núcleo y espira", "Monocelda; consta de una pareja de electrodos porosos con una lámina de electrólito (membrana) entre ambos", "Termopar; consta de hilo de hierro y cobre", "Rectificador; consta de seis diodos de silicio"], a: 1 },
+        { q: "En una pila de combustible de hidrógeno, ¿qué ocurre en el ÁNODO gracias al catalizador de platino?", opts: ["El oxígeno se combina con electrones formando aire comprimido", "El hidrógeno (H₂) se separa en iones de hidrógeno positivos (H⁺) y electrones de carga negativa (e⁻)", "El agua se descompone en platino e hidrógeno", "Se bloquea el paso de todos los iones"], a: 1 },
+        { q: "En la pila de combustible, ¿qué permite atravesar la membrana electrolítica y qué camino siguen los electrones?", opts: ["La membrana deja pasar los electrones y bloquea los iones H⁺", "La membrana solo permite el paso de iones positivos (H⁺) al cátodo, obligando a los electrones a ir por un circuito exterior generando corriente eléctrica", "Tanto electrones como iones atraviesan la membrana juntos", "La membrana convierte el hidrógeno en litio"], a: 1 },
+        { q: "¿Qué subproducto se forma en el cátodo de una pila de combustible de hidrógeno al reaccionar los iones H⁺, los electrones y el oxígeno del aire?", opts: ["Dióxido de carbono (CO₂)", "Ácido sulfúrico concentrado", "Agua (H₂O)", "Monóxido de carbono (CO)"], a: 2 },
+        { q: "¿Cuál de los siguientes elementos forma parte de un sistema completo de pila de combustible en un vehículo?", opts: ["Carburador de doble cuerpo y bujías de incandescencia", "Paquete de células, sistema de circulación de hidrógeno, sistema de humectación, refrigeración y compresor de aire", "Depósito de gasóleo y filtro de partículas FAP", "Alternador de escobillas y delco mecánico"], a: 1 }
+      ],
+      5: [
+        { q: "En la situación de partida de un motor Diésel con bomba inyectora rotativa que no arranca, tras descartar batería, motor de arranque y alimentación de combustible, ¿qué avería electromagnética se detecta?", opts: ["El relé de bujías está cortocircuitado", "La electroválvula de paro recibe tensión pero su bobinado está cortado", "El alternador genera exceso de corriente alterna", "El captador Hall tiene invertida la polaridad"], a: 1 },
+        { q: "¿Qué sucede si dividimos un imán en dos o más fragmentos?", opts: ["Cada fragmento conserva ambos polos, norte (N) y sur (S)", "Un fragmento queda solo con polo norte y el otro solo con polo sur", "Pierden inmediatamente todo su magnetismo", "Se convierten en materiales diamagnéticos"], a: 0 },
+        { q: "¿Qué diferencia magnética existe entre el hierro dulce y el acero?", opts: ["El hierro dulce pierde fácilmente la imantación, mientras que el acero la conserva con mayor facilidad", "El acero nunca puede imantarse y el hierro dulce es un imán permanente natural", "El hierro dulce tiene permeabilidad μ < 1 y el acero μ = 1", "No existe ninguna diferencia en su comportamiento magnético"], a: 0 },
+        { q: "Si acercamos una barra de acero a un imán y la mantenemos en contacto durante algún tiempo, ¿qué le ocurrirá?", opts: ["Se volverá diamagnética y repelerá al imán", "Quedará imantada conservando dicha imantación con facilidad", "Perderá su masa atómica", "Se calentará por efecto piezoeléctrico"], a: 1 },
+        { q: "Por el exterior de un imán, ¿qué sentido llevan las líneas de fuerza magnética?", opts: ["Salen del polo Sur (S) y entran por el polo Norte (N)", "Salen del polo Norte (N) y entran por el polo Sur (S)", "Parten del centro neutro hacia ambos extremos", "Forman rectas paralelas infinitas que nunca regresan al imán"], a: 1 },
+        { q: "¿Cómo se denominan las figuras curvas que forman las limaduras de hierro sobre una cartulina al colocar debajo un imán?", opts: ["Espectros magnéticos", "Circuitos de inducción mutua", "Ondas senoidales trifásicas", "Campos electrostáticos"], a: 0 },
+        { q: "¿Qué ocurre con el flujo magnético al enfrentar dos polos de distinta polaridad (N-S) frente a dos polos de la misma polaridad (N-N)?", opts: ["En N-S el flujo es de atracción (las líneas van de N a S) y en N-N el flujo es repulsivo", "En ambos casos las líneas se cruzan en ángulo recto", "En N-N las líneas se concentran en el centro y en N-S desaparecen", "En N-S se produce repulsión y en N-N atracción"], a: 0 },
+        { q: "¿A cuánto equivale 1 Weber (Wb) en el Sistema Internacional?", opts: ["1 Tesla / 1 m²", "1 Tesla · 1 m²", "1 Amperio · 1 Ohmio", "1 Voltio / 1 Segundo"], a: 1 },
+        { q: "¿Qué indica la permeabilidad magnética (μ) de un material?", opts: ["La resistencia eléctrica por metro de longitud", "La facilidad de un material para concentrar el campo magnético", "La temperatura máxima antes de fundirse", "La cantidad de electrones libres en su última órbita"], a: 1 },
+        { q: "¿Cuál de los siguientes pares de materiales corresponde a materiales NO MAGNÉTICOS o paramagnéticos (μ = 1)?", opts: ["Hierro y níquel", "Aluminio y titanio", "Cobre y mercurio", "Cobalto y acero"], a: 1 },
+        { q: "Si colocamos una barra con coeficiente de permeabilidad μ = 1.200 dentro de un campo magnético cuya inducción al vacío es de 1 línea de fuerza (1 T), ¿cuánto valdrá la inducción magnética en dicha barra?", opts: ["1.200 veces mayor (1.200 T)", "1.200 veces menor (1 / 1.200 T)", "Exactamente 1 T porque el coeficiente no influye", "0 T porque es diamagnética"], a: 0 },
+        { q: "¿Qué piezas componen un captador inductivo del automóvil?", opts: ["Un cristal de cuarzo, dos electrodos de platino y un amplificador", "Un imán permanente, un arrollamiento (bobina) y una rueda dentada ferromagnética", "Un termopar de hierro-cobre y una resistencia NTC", "Dos escobillas de carbón, un colector de delgas y un condensador"], a: 1 },
+        { q: "¿Cómo funciona un captador inductivo al girar la rueda dentada ferromagnética?", opts: ["La rueda corta la corriente continua de la batería generando pulsos cuadrados", "Al pasar los dientes y huecos varía el campo magnético que atraviesa la bobina, induciendo una corriente alterna", "El imán permanente gira arrastrado por el cigüeñal mientras la rueda está fija", "Genera luz infrarroja proporcional a las revoluciones"], a: 1 },
+        { q: "¿De qué depende la frecuencia de la señal alterna generada por un captador inductivo?", opts: ["Es directamente proporcional a las revoluciones de la rueda dentada", "Es siempre constante a 400 Hz independientemente del giro", "Es inversamente proporcional a la velocidad del vehículo", "Depende únicamente de la tensión de batería"], a: 0 },
+        { q: "¿En qué sistemas del vehículo se utilizan habitualmente los captadores inductivos?", opts: ["En el encendido de los faros de xenón y climatizador", "En la medición de revoluciones del motor (rpm), sensores de rueda del ABS y cambios automáticos", "En la regulación de temperatura de los asientos calefactables", "En el circuito de carga de las pilas de combustible"], a: 1 },
+        { q: "¿Qué comprobó Hans Christian Oersted en su célebre experimento con una brújula?", opts: ["Que al circular corriente por un conductor, la aguja imantada situada junto a él cambia de orientación", "Que un imán inmóvil dentro de una espira produce voltaje continuo", "Que el vidrio frotado atrae limaduras de cobre", "Que la resistencia del aluminio disminuye al calentarlo"], a: 0 },
+        { q: "En la experiencia de Oersted, ¿qué sucede si invertimos el sentido de la corriente eléctrica que circula por el conductor?", opts: ["La aguja de la brújula permanece inmóvil", "Cambia también el sentido del campo magnético generado y la aguja gira en sentido opuesto", "Desaparece por completo el campo magnético", "Se funde el aislante del conductor"], a: 1 },
+        { q: "¿Qué forma tienen las líneas del campo magnético creado alrededor de un conductor rectilíneo recorrido por corriente?", opts: ["Líneas rectas paralelas al conductor", "Círculos concéntricos en un plano perpendicular al conductor", "Espirales que salen únicamente de los extremos", "Ondas cuadradas de amplitud constante"], a: 1 },
+        { q: "Según la Ley de Biot-Savart (B = μ · I / (2 · π · d)), ¿cómo varía la intensidad del campo magnético B alrededor de un conductor rectilíneo?", opts: ["Aumenta al aumentar la distancia 'd' y disminuye con la intensidad 'I'", "Aumenta al aumentar la intensidad 'I' y disminuye al aumentar la distancia 'd' al conductor", "Es idéntica a cualquier distancia del conductor", "Solo depende de la longitud total del cable"], a: 1 },
+        { q: "¿A qué se conoce como 'ley del sacacorchos' en electromagnetismo?", opts: ["A la regla que relaciona el avance de un sacacorchos (sentido de la corriente) con su sentido de giro (sentido de las líneas de campo magnético)", "Al método para extraer inyectores piezoeléctricos gripados", "A la fórmula de cálculo de caída de tensión en serie", "A la descomposición electrolítica del agua"], a: 0 },
+        { q: "Según la Ley de Laplace (F = B · I · L · sen α), ¿cuánto vale la fuerza ejercida sobre un conductor con corriente si este se coloca PARALELO a las líneas del campo magnético (α = 0°)?", opts: ["F es máxima (F = B · I · L)", "F = 0 (no aparece fuerza de desplazamiento)", "F = B / I", "F toma valor negativo máximo"], a: 1 },
+        { q: "¿Por qué se introduce un núcleo de hierro dulce en el interior de un solenoide para fabricar un electroimán?", opts: ["Porque el hierro dulce refuerza intensamente el campo magnético y además pierde rápido la imantación al cortar la corriente", "Porque el hierro dulce es un aislante térmico que evita que se queme la bobina", "Para reducir el consumo de amperios a cero", "Porque el hierro dulce es diamagnético (μ < 1)"], a: 0 },
+        { q: "En la experiencia de laboratorio con un solenoide de 100 espiras alimentado de 0,1 A a 3 A sin núcleo frente a una plaquita de hierro, ¿qué ocurre al introducir un núcleo de hierro?", opts: ["El campo magnético disminuye y deja de atraer la plaquita", "El campo magnético se refuerza notablemente y el solenoide atrae con fuerza la plaquita de hierro", "El solenoide comienza a generar corriente alterna", "Se invierte la polaridad de la fuente de alimentación"], a: 1 },
+        { q: "¿Cuáles son las cuatro grandes aplicaciones de los electroimanes en el automóvil?", opts: ["Baterías, fusibles, lámparas y neumáticos", "Relés, electroválvulas, motores y generadores", "Termopares, cristales de cuarzo, células solares y condensadores", "Bujías, colectores de escape, radiadores y filtros"], a: 1 },
+        { q: "¿Cuál es la función principal de un relé en el circuito eléctrico del automóvil?", opts: ["Transformar corriente continua en corriente alterna trifásica", "Actuar como un interruptor reforzado que permite controlar grandes intensidades con una corriente de mando pequeña, protegiendo interruptores y centralitas", "Almacenar energía química durante el frenado regenerativo", "Medir las revoluciones del árbol de levas"], a: 1 }
+      ],
+      6: [
+        { q: "En un relé electromagnético estándar de 4 contactos en el automóvil, ¿qué bornes corresponden al circuito de MANDO (bobina) y cuáles al circuito de POTENCIA?", opts: ["Mando: 30 y 87; Potencia: 85 y 86", "Mando: 85 y 86; Potencia: 30 y 87", "Mando: 30 y 85; Potencia: 86 y 87", "Mando: 15 y 50; Potencia: 31 y D+"], a: 1 },
+        { q: "¿Qué ocurre internamente cuando se cierra el interruptor de mando que alimenta los bornes 85 y 86 de un relé?", opts: ["Se abre el contacto entre 30 y 87 interrumpiendo la corriente", "Circula una pequeña corriente por el bobinado, creando un campo magnético que atrae el contacto móvil y cierra el circuito de potencia (30-87)", "La batería se conecta en cortocircuito a masa a través del borne 87", "El bobinado genera corriente alterna de 400 Hz hacia la lámpara"], a: 1 },
+        { q: "Para alimentar una lámpara de gran consumo empleando un relé de 4 contactos (30, 87, 85, 86), ¿cómo debe realizarse la conexión correcta?", opts: ["Borne 30 a positivo de batería, 87 a la lámpara (y esta a masa), 85 a positivo a través del interruptor de mando y 86 a masa", "Borne 85 y 86 en serie con la lámpara, y 30 y 87 al interruptor de mando", "Borne 30 a masa, 87 a masa, 85 a batería y 86 a la lámpara", "Todos los bornes conectados en paralelo al positivo de batería"], a: 0 },
+        { q: "¿Qué son las electroválvulas y qué tipos de alimentación eléctrica pueden recibir?", opts: ["Válvulas accionadas por presión de aceite; solo funcionan con corriente alterna", "Dispositivos cuyo apertura y cierre está controlada por un electroimán; pueden recibir alimentación permanente o pulsatoria", "Sensores inductivos de rueda; generan señales senoidales", "Interruptores térmicos bimetálicos; solo funcionan a 500 V"], a: 1 },
+        { q: "¿Qué componentes internos principales forman un inyector electromagnético?", opts: ["Bobinado electromagnético, muelle de compresión, inducido y aguja", "Imán permanente, rueda dentada y puente de diodos", "Membrana de platino, cátodo y ánodo", "Cristal de cuarzo, reactancia y gas xenón"], a: 0 },
+        { q: "¿Cómo transforma la energía un motor de corriente continua (CC)?", opts: ["Convierte energía térmica en energía química", "Aprovecha las fuerzas electromagnéticas sobre conductores con corriente para transformar energía eléctrica en movimiento de rotación", "Transforma movimiento mecánico en corriente alterna trifásica", "Convierte luz solar en movimiento lineal"], a: 1 },
+        { q: "¿En qué principio se basan los generadores eléctricos del vehículo (alternador, dinamo, volante magnético)?", opts: ["En la acumulación de cargas estáticas por rozamiento", "En aprovechar las corrientes inducidas cuando una bobina está sometida a variaciones del campo magnético", "En la electrólisis del agua destilada", "En el calentamiento de un termopar de cobre-hierro"], a: 1 },
+        { q: "En la práctica de laboratorio de la experiencia de Oersted (con batería de 12 V, lámpara de 55 W, cables y aguja imantada), ¿qué precaución de seguridad se destaca?", opts: ["Procurar no provocar un cortocircuito porque no hay instalado ningún fusible", "Usar guantes dieléctricos de 30.000 V", "Sumergir la aguja imantada en ácido sulfúrico", "Conectar el circuito directamente a la red doméstica de 230 V"], a: 0 },
+        { q: "En dicha práctica de Oersted, ¿cómo debe colocarse inicialmente el cable respecto a la aguja imantada antes de conectar la batería?", opts: ["Perpendicular a la aguja y a 1 metro de distancia", "Tensado, justo por encima de la aguja y en posición longitudinal (paralela) a ella", "Enrollado 50 veces alrededor del soporte de plástico", "Debajo de la batería lejos de la brújula"], a: 1 },
+        { q: "¿Qué ocurre con la aguja imantada al conectar el circuito de la práctica de Oersted a la batería de 12 V?", opts: ["La aguja gira y se coloca en posición perpendicular al conductor", "La aguja permanece completamente inmóvil en posición longitudinal", "La aguja empieza a girar continuamente como un motor", "La lámpara de 55 W se apaga por inducción mutua"], a: 0 },
+        { q: "¿Por qué gira la aguja imantada al pasar corriente eléctrica por el conductor en la práctica de Oersted?", opts: ["Porque el calor de la lámpara dilata el soporte", "Porque alrededor del conductor aparece otro campo magnético que ejerce fuerzas de atracción y repulsión sobre el campo de la aguja", "Porque la batería descarga electrones estáticos sobre el cristal", "Porque la aguja es de cobre diamagnético"], a: 1 },
+        { q: "¿Cuál es la conclusión fundamental de la práctica profesional de Oersted?", opts: ["Un imán permanente siempre produce corriente continua", "Una corriente eléctrica genera un campo magnético a su alrededor", "La resistencia de una lámpara de 55 W es infinita", "El flujo magnético se mide en culombios"], a: 1 },
+        { q: "En el osciloscopio de un inyector electromagnético (Figura 2.19), ¿qué tipo de señal se observa durante su activación?", opts: ["Una línea recta constante de 12 V", "Una señal pulsatoria compleja con pico inductivo de tensión al cortar la alimentación", "Una onda senoidal pura de 50 Hz", "Una señal plana de 0 V durante todo el ciclo"], a: 1 },
+        { q: "¿Qué ocurre en un electroimán cuando se interrumpe la corriente eléctrica que alimenta su bobina?", opts: ["Desaparece el campo magnético y un muelle suele devolver el inducido a su posición de reposo", "El electroimán sigue atrayendo con la misma fuerza indefinidamente", "La bobina se convierte en un imán permanente de acero", "Aumenta la intensidad de corriente al doble"], a: 0 },
+        { q: "¿Qué sucede si aumenta la intensidad de corriente (I) que recorre un solenoide manteniendo constantes el número de espiras y el núcleo?", opts: ["El campo magnético creado aumenta proporcionalmente", "El campo magnético disminuye a la mitad", "Se invierten los polos Norte y Sur", "El solenoide deja de conducir corriente"], a: 0 },
+        { q: "En un vehículo híbrido (esquema Power Split Device / Prius III), ¿qué función cumple el 'Conversor' conectado a la batería HV de 201,6 V DC?", opts: ["Transformar los 201,6 V DC en 12 V DC para alimentar la batería auxiliar y la red de a bordo", "Elevar la tensión a 30.000 V AC para los faros de xenón", "Convertir hidrógeno en agua", "Rectificar la corriente del motor de arranque"], a: 0 },
+        { q: "¿Qué función realiza el 'Inversor' en el sistema eléctrico de un vehículo híbrido?", opts: ["Transforma corriente continua (DC) en corriente alterna (AC) para alimentar el motor-alternador trifásico y el compresor A/C", "Convierte corriente alterna de 12 V en corriente continua de 201,6 V", "Reduce la resistencia de los cables de cobre", "Mide el flujo magnético en Webers"], a: 0 },
+        { q: "En un circuito eléctrico con batería, interruptor, lámpara y aparato de medida, si el aparato marca 'V' y está conectado entre el borne positivo y el negativo de la batería, ¿qué magnitud mide?", opts: ["La intensidad en amperios", "El voltaje o diferencia de potencial en voltios", "La resistencia de la lámpara en ohmios", "La permeabilidad magnética"], a: 1 },
+        { q: "¿Qué magnitud mide el galvanómetro utilizado en los experimentos de inducción electromagnética?", opts: ["Detecta el paso y el sentido de pequeñas corrientes eléctricas inducidas", "Mide exclusivamente altas tensiones de 30.000 V", "Calcula la resistividad específica del aluminio", "Mide la densidad del electrólito en grados Baumé"], a: 0 },
+        { q: "Si acercamos el polo Sur de un imán a una bobina y luego lo alejamos, ¿qué ocurre con la aguja del galvanómetro?", opts: ["Se desvía en un sentido al acercarlo y en el sentido opuesto al alejarlo, marcando cero si el imán está quieto", "Permanece desviada al máximo aunque el imán esté completamente inmóvil", "Solo marca desviación cuando el imán está quieto", "Siempre se desvía hacia la derecha"], a: 0 },
+        { q: "En un generador elemental de una espira (Figura 2.45), ¿en qué posiciones angulares (0°, 180° y 360°) la fuerza electromotriz inducida vale CERO?", opts: ["Cuando la espira se mueve paralela a las líneas de campo sin cortarlas (0°, 180° y 360°)", "Cuando la espira corta perpendicularmente las líneas de campo (90° y 270°)", "A los 45° y 225°", "Nunca vale cero durante el giro"], a: 0 },
+        { q: "En la cuba electrolítica de la Figura 2.51 (electrólisis de disolución con Na⁺, Cl⁻, H⁺), ¿qué gases se desprenden en los electrodos?", opts: ["Hidrógeno (H₂) y Cloro (Cl₂)", "Oxígeno y Helio", "Nitrógeno y Dióxido de carbono", "Gas Xenón y Argón"], a: 0 },
+        { q: "¿Por qué las baterías de hidruro metálico-níquel (NiMH) y de ion-litio sustituyeron a las de plomo en la tracción de vehículos híbridos y eléctricos?", opts: ["Porque las baterías de plomo son muy pesadas y no tienen capacidad suficiente", "Porque las de plomo generan corriente alterna directamente", "Porque las de ion-litio no cuestan dinero ni envejecen", "Porque las de plomo funcionan con hidrógeno gaseoso"], a: 0 },
+        { q: "En una batería de ion-litio durante el proceso de CARGA, ¿qué hace la corriente externa?", opts: ["Bombea electrones en el electrodo negativo y los extrae del positivo, haciendo el negativo más negativo y el positivo más positivo", "Extrae todos los iones de litio hacia el exterior de la carcasa", "Convierte el electrólito en ácido sulfúrico", "Descarga completamente la celda para evitar el efecto memoria"], a: 0 },
+        { q: "¿Cuál es la función del 'sistema de humectación' en un sistema completo de pila de combustible de hidrógeno?", opts: ["Mantener el grado adecuado de humedad en la membrana electrolítica para garantizar el correcto paso de los iones H⁺", "Enfriar los discos de freno regenerativos", "Lubricar los pistones del motor térmico", "Limpiar los faros de xenón automáticamente"], a: 0 }
+      ],
+      7: [
+        { q: "Calcula la intensidad que circula por un circuito por el que pasan 42 culombios en 3 segundos:", opts: ["14 A", "126 A", "0,07 A", "39 A"], a: 0 },
+        { q: "¿Cuántos culombios han circulado por un conductor durante 5 segundos si la intensidad es de 8 amperios?", opts: ["40 C", "1,6 C", "0,625 C", "13 C"], a: 0 },
+        { q: "¿Cuántos electrones libres equivalen a una carga eléctrica de 2 culombios?", opts: ["1,25 × 10¹⁹ electrones", "6,25 × 10¹⁸ electrones", "3,12 × 10¹⁸ electrones", "9 × 10⁹ electrones"], a: 0 },
+        { q: "Un receptor de automóvil tiene una resistencia de 3 Ω y se conecta a una batería de 12 V. ¿Qué intensidad consume y qué potencia desarrolla?", opts: ["I = 4 A y P = 48 W", "I = 36 A y P = 432 W", "I = 0,25 A y P = 3 W", "I = 4 A y P = 12 W"], a: 0 },
+        { q: "Una luneta térmica trasera consume 15 A alimentada a 12 V. ¿Cuál es su potencia eléctrica y su resistencia?", opts: ["P = 180 W y R = 0,8 Ω", "P = 27 W y R = 1,25 Ω", "P = 180 W y R = 180 Ω", "P = 1,25 W y R = 15 Ω"], a: 0 },
+        { q: "Una resistencia calefactora de 4 Ω disipa una potencia de 100 W. ¿Qué intensidad circula por ella (P = R · I²)?", opts: ["5 A", "25 A", "400 A", "2,5 A"], a: 0 },
+        { q: "Si por un cable de instalación de 0,15 Ω de resistencia interna circulan 20 A hacia el motor de arranque, ¿qué caída de tensión se produce en ese cable?", opts: ["3 V", "0,0075 V", "133,3 V", "20,15 V"], a: 0 },
+        { q: "Calcula la resistencia de un cable de aluminio (ρ = 0,028 Ω·mm²/m) de 10 metros de longitud y 2 mm² de sección:", opts: ["0,14 Ω", "1,4 Ω", "0,0056 Ω", "0,56 Ω"], a: 0 },
+        { q: "Calcula la resistencia de un conductor de plata (ρ = 0,016 Ω·mm²/m) de 4 metros de longitud y 0,8 mm² de sección:", opts: ["0,08 Ω", "0,8 Ω", "0,0032 Ω", "0,02 Ω"], a: 0 },
+        { q: "Si un material conductor tiene una conductividad c = 50 m/(Ω·mm²), ¿cuál es su resistividad ρ (ρ = 1/c)?", opts: ["0,02 Ω·mm²/m", "50 Ω·mm²/m", "0,5 Ω·mm²/m", "5 Ω·mm²/m"], a: 0 },
+        { q: "Una superficie plana de 0,5 m² es atravesada perpendicularmente por un campo magnético uniforme de inducción B = 0,4 Teslas. ¿Cuánto vale el flujo magnético Φ?", opts: ["0,2 Webers (Wb)", "0,8 Webers (Wb)", "1,25 Webers (Wb)", "2,0 Webers (Wb)"], a: 0 },
+        { q: "Si el flujo magnético que atraviesa una espira de 0,25 m² es de 0,5 Webers, ¿cuál es la inducción magnética B?", opts: ["2 Teslas (T)", "0,125 Teslas (T)", "0,75 Teslas (T)", "4 Teslas (T)"], a: 0 },
+        { q: "Según la Ley de Coulomb, si duplicamos la distancia 'd' entre dos cargas puntuales manteniendo iguales sus valores, ¿qué ocurre con la fuerza de atracción o repulsión?", opts: ["Se reduce a la cuarta parte (1/4)", "Se reduce a la mitad (1/2)", "Se duplica", "Se cuadruplica"], a: 0 },
+        { q: "Según la Ley de Biot-Savart, si triplicamos la distancia 'd' respecto a un conductor rectilíneo con corriente constante, ¿cómo cambia el campo magnético B?", opts: ["Se reduce a la tercera parte (B / 3)", "Se triplica (3 · B)", "Se reduce a la novena parte (B / 9)", "Permanece constante"], a: 0 },
+        { q: "Calcula la fuerza magnética (Ley de Laplace: F = I · L · B · sen α) sobre un conductor de 0,5 m por el que circulan 10 A situado perpendicularmente (α = 90°) a un campo de 0,8 T:", opts: ["4 N", "0 N", "16 N", "0,4 N"], a: 0 },
+        { q: "En la Ley de Laplace, si el conductor forma un ángulo α = 30° (sen 30° = 0,5) con el campo magnético, ¿qué porcentaje de la fuerza máxima experimenta?", opts: ["El 50 % de la fuerza máxima", "El 100 % de la fuerza máxima", "El 0 % (fuerza nula)", "El 25 % de la fuerza máxima"], a: 0 },
+        { q: "En el esquema del Toyota Prius III (Figura 2.14), ¿qué tensión alterna recibe el compresor del aire acondicionado (A/C) tras pasar por su inversor dedicado?", opts: ["201,6 V AC", "500 V AC", "12 V AC", "400 V AC"], a: 0 },
+        { q: "¿Cuál es la tensión nominal de la batería de alta tensión (HV) en el esquema del Prius III mostrado en el tema?", opts: ["201,6 V DC", "500 V DC", "48 V DC", "12 V DC"], a: 0 },
+        { q: "¿Qué frecuencia de corriente alterna genera la reactancia de un faro de xenón para mantener el arco voltaico?", opts: ["400 Hz", "50 Hz", "60 Hz", "1.000 Hz"], a: 0 },
+        { q: "¿Hasta qué tensión puede alcanzar el arco voltaico de encendido entre los electrodos de tungsteno de un faro de xenón?", opts: ["Hasta 30.000 V", "Hasta 500 V", "Hasta 12 V", "Hasta 201,6 V"], a: 0 },
+        { q: "En la figura del osciloscopio de un captador Hall (Figura 2.11), ¿qué forma de onda y tensión de pico muestra?", opts: ["Una onda cuadrada de 12 V de amplitud", "Una onda senoidal de 80 V", "Una línea continua de 500 V", "Un pico único de 30.000 V"], a: 0 },
+        { q: "En un circuito con dos lámparas de 55 W conectadas a una batería de 12 V, ¿qué potencia total consumen ambas lámparas encendidas?", opts: ["110 W", "55 W", "27,5 W", "220 W"], a: 0 },
+        { q: "Si conectamos un voltímetro en paralelo a una batería de 12 V con el interruptor de luces abierto, ¿qué debe marcar?", opts: ["Aproximadamente 12 V (tensión de batería)", "0 V siempre que el interruptor esté abierto", "La resistencia interna de la lámpara", "Los amperios de descarga"], a: 0 },
+        { q: "¿Qué capas orbitales aparecen nombradas en el esquema de capas electrónicas del átomo (apartado 1.4 del tema)?", opts: ["K, L, M, N", "A, B, C, D", "X, Y, Z, W", "P, Q, R, S"], a: 0 },
+        { q: "En el esquema de la molécula de agua (H₂O) del apartado 1.1, ¿por qué se clasifica el agua como un compuesto?", opts: ["Porque está formada por átomos desiguales (1 átomo de oxígeno y 2 átomos de hidrógeno)", "Porque está formada exclusivamente por átomos iguales de hidrógeno", "Porque carece de electrones de valencia", "Porque es un material ferromagnético"], a: 0 }
+      ],
+      8: [
+        { q: "En la avería de partida de la presentación (motor Diésel que no arranca), ¿qué comprobación confirma que el fallo está en la electroválvula de paro y no en el relé de mando?", opts: ["Comprobar que llega tensión eléctrica al terminal de la electroválvula pero su bobinado interno está cortado (sin continuidad)", "Comprobar que la batería tiene menos de 10 V", "Verificar que el depósito de combustible está vacío", "Medir presión de xenón en los inyectores"], a: 0 },
+        { q: "Si en un relé de 4 contactos (85, 86, 30, 87) comprobamos con un óhmetro en reposo que existe continuidad (0 Ω) entre los bornes 30 y 87 sin alimentar la bobina, ¿qué avería tiene el relé?", opts: ["Los contactos de potencia están soldados/pegados en posición cerrada", "La bobina de mando (85-86) está cortada", "El relé funciona perfectamente", "Falta masa en el borne 86"], a: 0 },
+        { q: "Si al alimentar con 12 V los bornes 85 y 86 de un relé no se escucha ningún 'clic' ni se cierra el circuito 30-87, ¿cuál es la causa más probable?", opts: ["El bobinado del electroimán (85-86) está cortado o abierto", "La lámpara del circuito de potencia está fundida", "El fusible del alternador está en buen estado", "La permeabilidad del núcleo es superior a 1"], a: 0 },
+        { q: "Al diagnosticar con un osciloscopio un captador inductivo de revoluciones de rueda (ABS) mientras giramos la rueda con la mano, ¿qué señal debemos observar?", opts: ["Una señal de corriente alterna senoidal cuya amplitud y frecuencia aumentan al girar más rápido la rueda", "Una señal cuadrada fija de 12 V aunque la rueda esté parada", "Una corriente continua constante de 5 V", "Una señal de 30.000 V a 400 Hz"], a: 0 },
+        { q: "¿Por qué un captador inductivo no necesita alimentación eléctrica externa de 12 V para generar señal?", opts: ["Porque incorpora un imán permanente cuyo flujo varía al pasar los dientes de la rueda ferromagnética, induciendo su propia f.e.m. en la bobina", "Porque toma energía de los faros de xenón", "Porque funciona mediante el efecto fotoeléctrico de la luz solar", "Porque utiliza un termopar interno"], a: 0 },
+        { q: "En un inyector diésel HDI de accionamiento piezoeléctrico, ¿qué fenómeno físico provoca la apertura de la aguja del inyector?", opts: ["La deformación física rápida de un paquete de cristales de cuarzo al recibir impulsos eléctricos", "El giro de un motor de corriente continua trifásico", "La combustión de hidrógeno en una monocelda", "El calentamiento de un hilo de hierro y cobre"], a: 0 },
+        { q: "En la experiencia de inducción mutua (Figura 2.49 y 2.50) con dos bobinas A y B enrolladas sobre un mismo núcleo, ¿en qué sentido se induce la corriente en B al CERRAR el interruptor de la bobina A?", opts: ["En sentido contrario a la corriente de la batería (oponiéndose al aumento de flujo según la Ley de Lenz)", "En el mismo sentido que la corriente de la batería", "No se induce ninguna corriente al cerrar el interruptor", "Se induce corriente continua permanente mientras esté cerrado"], a: 0 },
+        { q: "¿Y qué ocurre en la bobina B de esa misma experiencia en el instante de ABRIR el interruptor de la bobina A?", opts: ["Desaparece el flujo y se forma una f.e.m. inducida con la misma dirección que la de la batería, al oponerse a la desaparición del flujo", "La bobina B se magnetiza permanentemente", "El amperímetro marca cero absoluto durante la apertura", "Se invierte la polaridad química de la batería"], a: 0 },
+        { q: "Si queremos diseñar un electroimán más potente sin aumentar la intensidad de corriente de la batería, ¿qué dos modificaciones podemos aplicar según el tema?", opts: ["Aumentar el número de espiras de la bobina e introducir un núcleo ferromagnético (hierro dulce)", "Reducir el número de espiras y usar un núcleo de madera o plástico", "Sustituir el cobre por un aislante de caucho y reducir las espiras", "Usar un núcleo diamagnético de mercurio"], a: 0 },
+        { q: "¿Por qué en un electroimán de automoción (como el relé o la electroválvula) se utiliza hierro dulce en el núcleo en lugar de acero templado?", opts: ["Porque el hierro dulce se imanta con gran intensidad cuando pasa corriente pero pierde rápido su magnetismo al cortarla, evitando que se quede pegado", "Porque el hierro dulce es más barato que el plástico", "Porque el acero es un material diamagnético", "Porque el hierro dulce no conduce el flujo magnético"], a: 0 },
+        { q: "En una batería de hidruro metálico-níquel (NiMH) de un vehículo híbrido, ¿en qué forma química se almacena el hidrógeno durante la carga?", opts: ["En forma de hidruro metálico", "En forma de gas cloro libre", "Disuelto en ácido sulfúrico líquido", "Combinado con litio metálico puro"], a: 0 },
+        { q: "Durante la descarga de una batería de ion-litio, ¿qué elemento químico se desplaza en forma de iones a través del electrólito desde el electrodo negativo al positivo?", opts: ["Iones de litio", "Iones de plomo", "Electrones libres", "Átomos de tungsteno"], a: 0 },
+        { q: "¿Qué ocurre con una batería de ion-litio si se somete repetidamente a condiciones de sobredescarga o sobrecarga?", opts: ["Se degrada y pierde prestaciones", "Aumenta su capacidad máxima indefinidamente", "Elimina su envejecimiento natural", "Se transforma en una batería NiMH"], a: 0 },
+        { q: "¿Es cierto que una batería de ion-litio solo envejece cuando se utiliza en el vehículo?", opts: ["Falso: la batería de ion-litio envejece con el tiempo se use o no", "Verdadero: si no se usa conserva el 100 % de su capacidad durante décadas", "Verdadero: solo envejece si se descarga por debajo del 50 %", "Falso: únicamente envejece a temperaturas de 20 °C"], a: 0 },
+        { q: "En una célula de combustible de hidrógeno (Figura 2.54), ¿qué función cumple el catalizador de platino situado en el ánodo?", opts: ["Separar las moléculas de hidrógeno (H₂) en iones positivos (H⁺) y electrones (e⁻)", "Bloquear el paso del oxígeno hacia el cátodo", "Convertir el agua líquida en gas hidrógeno", "Almacenar energía mecánica como un volante de inercia"], a: 0 },
+        { q: "¿Por dónde llegan los electrones al cátodo en una pila de combustible de hidrógeno?", opts: ["A través de un circuito eléctrico exterior, generando así la corriente eléctrica útil", "Atravesando directamente la membrana electrolítica junto con los iones H⁺", "Por el tubo de escape junto con el vapor de agua", "A través del compresor de aire"], a: 0 },
+        { q: "¿Qué ocurre en la fase 3 de la célula de combustible (Figura 2.54) en el lado del cátodo?", opts: ["Los iones H⁺ que atravesaron la membrana, los electrones del circuito exterior y el oxígeno del aire (O₂) se combinan formando agua (H₂O)", "El hidrógeno se solidifica en el ánodo", "Se produce una descarga de 30.000 V", "El platino se disuelve en el electrólito"], a: 0 },
+        { q: "Además del paquete de células (monoceldas), ¿qué componente es indispensable para suministrar oxígeno al cátodo de una pila de combustible?", opts: ["Un compresor o ventilador de aire", "Un carburador de doble cuerpo", "Una reactancia de 400 Hz", "Un puente rectificador de seis diodos"], a: 0 },
+        { q: "Para obtener la tensión y potencia necesarias para propulsar un vehículo eléctrico de pila de combustible, ¿cómo se agrupan las monoceldas?", opts: ["Se conectan múltiples monoceldas formando un paquete de células (stack)", "Se utiliza una única monocelda gigante de 12 V", "Se conectan en paralelo con una batería de plomo de 6 V", "Se sumergen en gas xenón a presión"], a: 0 },
+        { q: "En la regla de la mano derecha aplicada a un GENERADOR (inducción electromagnética, apartado 7), ¿qué indica cada dedo?", opts: ["Índice: dirección del flujo magnético; Pulgar: sentido del movimiento del conductor; Corazón: dirección de la corriente inducida", "Pulgar: dirección de la fuerza; Índice: flujo magnético; Corazón: corriente", "Índice: movimiento; Pulgar: corriente; Corazón: resistencia", "Pulgar: polo norte; Índice: polo sur; Corazón: tensión"], a: 0 },
+        { q: "¿Cuál es la diferencia fundamental entre la regla de la mano IZQUIERDA (apartado 6.8) y la regla de la mano DERECHA (apartado 7)?", opts: ["La mano izquierda se aplica a motores (fuerza sobre un conductor con corriente en un campo) y la mano derecha a generadores (corriente inducida al mover un conductor en un campo)", "Ambas se aplican exactamente al mismo fenómeno", "La mano izquierda es para corriente alterna y la derecha para estática", "La mano derecha solo sirve para calcular resistencias"], a: 0 },
+        { q: "Si un conductor rectilíneo transporta corriente eléctrica hacia arriba, ¿qué dirección tiene el campo magnético B que lo rodea?", opts: ["Circular en un plano horizontal perpendicular al conductor, siguiendo el sentido de giro de los dedos de la mano derecha al rodearlo con el pulgar hacia arriba", "Rectilínea hacia arriba paralela al propio cable", "Radial hacia afuera en línea recta sin girar", "Nula, porque los conductores rectilíneos no crean campo"], a: 0 },
+        { q: "¿Por qué se dice que electricidad y magnetismo están directamente relacionados?", opts: ["Porque toda corriente eléctrica crea un campo magnético a su alrededor (Oersted) y toda variación de flujo magnético induce una corriente eléctrica (Faraday/Lenz)", "Porque ambos se miden exclusivamente en ohmios", "Porque los imanes están fabricados de plástico aislante", "Porque los electrones tienen carga magnética positiva"], a: 0 },
+        { q: "En un vehículo, ¿qué componente rectifica la corriente alterna trifásica generada por el alternador para convertirla en corriente continua y cargar la batería?", opts: ["El puente de diodos (semiconductores de silicio)", "La reactancia de los faros de xenón", "El captador inductivo del cigüeñal", "La electroválvula de corte de combustible"], a: 0 },
+        { q: "Si un alumno completa los 8 tests de este simulador sobre el Tema 2 y saca al menos 8,0 en cada uno, ¿qué porcentaje mínimo de aciertos habrá logrado en cada bloque?", opts: ["Al menos el 80 % (20 de 25 preguntas acertadas)", "Al menos el 50 % (12,5 de 25 preguntas acertadas)", "Al menos el 90 % (22,5 de 25 preguntas acertadas)", "Al menos el 60 % (15 de 25 preguntas acertadas)"], a: 0 }
+      ]
+    };
+
+    let currentTestNum = 1;
+    let activeQuestions = [];
+    let userAnswers = {};
+    let testStartTime = 0;
+
+    function loadVisualPrefs() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(PREFS_KEY) || "{}");
+        if (saved.theme) setVisualTheme(saved.theme, false);
+        if (saved.mode) setColorMode(saved.mode, false);
+      } catch (e) {}
+    }
+
+    function saveVisualPrefs() {
+      try {
+        const theme = document.documentElement.getAttribute("data-theme") || "indigo";
+        const mode = document.documentElement.getAttribute("data-mode") || "light";
+        localStorage.setItem(PREFS_KEY, JSON.stringify({ theme, mode }));
+      } catch (e) {}
+    }
+
+    function setVisualTheme(themeName, persist = true) {
+      document.documentElement.setAttribute("data-theme", themeName);
+      const select = document.getElementById("themeSelect");
+      if (select) select.value = themeName;
+      document.querySelectorAll(".swatch").forEach(s => {
+        s.classList.toggle("active", s.getAttribute("data-swatch") === themeName);
+      });
+      if (persist) saveVisualPrefs();
+    }
+
+    function setColorMode(mode, persist = true) {
+      document.documentElement.setAttribute("data-mode", mode);
+      const btn = document.getElementById("btnColorMode");
+      if (btn) btn.innerHTML = mode === "dark" ? "☀️ Claro" : "🌙 Oscuro";
+      if (persist) saveVisualPrefs();
+    }
+
+    function toggleColorMode() {
+      const current = document.documentElement.getAttribute("data-mode") || "light";
+      setColorMode(current === "light" ? "dark" : "light", true);
+    }
+
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      if (!t) return;
+      t.textContent = msg;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 3200);
+    }
+
+    function switchView(viewId) {
+      document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+      const target = document.getElementById(viewId);
+      if (target) target.classList.add("active");
+      const headerHome = document.getElementById("btnHeaderHome");
+      if (headerHome) headerHome.style.display = viewId === "view-home" ? "none" : "inline-flex";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function goHome() {
+      switchView("view-home");
+    }
+
+    function toggleFullscreen() {
+      const btn = document.getElementById("btnFullscreen");
+      try {
+        if (!document.fullscreenElement && !document.body.classList.contains("pseudo-fullscreen")) {
+          const req = document.documentElement.requestFullscreen ? document.documentElement.requestFullscreen() : null;
+          if (req && typeof req.catch === "function") {
+            req.catch(() => {
+              document.body.classList.add("pseudo-fullscreen");
+              if (btn) btn.innerHTML = "🗗 Salir pantalla completa";
+            });
+          } else if (!req) {
+            document.body.classList.add("pseudo-fullscreen");
+            if (btn) btn.innerHTML = "🗗 Salir pantalla completa";
+          }
+        } else {
+          if (document.fullscreenElement && document.exitFullscreen) {
+            document.exitFullscreen().catch(() => {});
+          }
+          document.body.classList.remove("pseudo-fullscreen");
+          if (btn) btn.innerHTML = "⛶ Pantalla completa";
+        }
+      } catch (e) {
+        document.body.classList.toggle("pseudo-fullscreen");
+        if (btn) btn.innerHTML = document.body.classList.contains("pseudo-fullscreen") ? "🗗 Salir pantalla completa" : "⛶ Pantalla completa";
+      }
+    }
+
+    document.addEventListener("fullscreenchange", () => {
+      const btn = document.getElementById("btnFullscreen");
+      if (!btn) return;
+      const active = Boolean(document.fullscreenElement) || document.body.classList.contains("pseudo-fullscreen");
+      btn.innerHTML = active ? "🗗 Salir pantalla completa" : "⛶ Pantalla completa";
+    });
+
+    function startTest(testNum) {
+      currentTestNum = testNum;
+      userAnswers = {};
+      testStartTime = Date.now();
+
+      const raw = QUESTION_BANK[testNum] || [];
+      const shuffledQs = shuffleArray(raw);
+
+      activeQuestions = shuffledQs.map((item, idx) => {
+        const indexedOpts = item.opts.map((text, optIdx) => ({
+          text,
+          isCorrect: optIdx === item.a
+        }));
+        const shuffledOpts = shuffleArray(indexedOpts);
+        const newCorrectIdx = shuffledOpts.findIndex(o => o.isCorrect);
+        return {
+          num: idx + 1,
+          q: item.q,
+          opts: shuffledOpts.map(o => o.text),
+          a: newCorrectIdx
+        };
+      });
+
+      document.getElementById("quizTitle").textContent = `TEST ${testNum} • Tema 2 Electricidad y Electromagnetismo`;
+      renderQuestions();
+      updateProgress();
+      switchView("view-quiz");
+    }
+
+    function restartCurrentTest() {
+      startTest(currentTestNum);
+      showToast("🔀 Preguntas y respuestas barajadas de nuevo");
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById("questionsContainer");
+      const letters = ["A", "B", "C", "D"];
+      container.innerHTML = activeQuestions.map((item, qIdx) => `
+        <div class="question-card" id="qcard-${qIdx}">
+          <div class="q-header">
+            <span class="q-num">#${item.num}</span>
+            <div class="q-text">${item.q}</div>
+          </div>
+          <div class="options-list">
+            ${item.opts.map((optText, oIdx) => `
+              <button type="button" class="option-btn" id="opt-${qIdx}-${oIdx}" onclick="selectOption(${qIdx}, ${oIdx})">
+                <span class="opt-letter">${letters[oIdx]}</span>
+                <span>${optText}</span>
+              </button>
+            `).join("")}
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function selectOption(qIdx, oIdx) {
+      userAnswers[qIdx] = oIdx;
+      for (let i = 0; i < 4; i++) {
+        const btn = document.getElementById(`opt-${qIdx}-${i}`);
+        if (btn) btn.classList.toggle("selected", i === oIdx);
+      }
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const answered = Object.keys(userAnswers).length;
+      const total = activeQuestions.length;
+      const pct = Math.round((answered / total) * 100);
+      document.getElementById("progressText").textContent = `Respondidas: ${answered} / ${total}`;
+      document.getElementById("progressPercent").textContent = `${pct}%`;
+      document.getElementById("progressFill").style.width = `${pct}%`;
+    }
+
+    function formatDuration(ms) {
+      const totalSec = Math.max(1, Math.floor(ms / 1000));
+      const m = Math.floor(totalSec / 60);
+      const s = totalSec % 60;
+      return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+    }
+
+    function getHistory() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveHistoryItem(entry) {
+      try {
+        const list = getHistory();
+        list.unshift(entry);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+      } catch (e) {}
+    }
+
+    function clearHistory() {
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+      } catch (e) {}
+      renderHistory();
+      showToast("🗑️ Historial borrado");
+    }
+
+    function sendWebhook(payload) {
+      try {
+        fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        }).catch(() => {});
+      } catch (e) {}
+    }
+
+    function buildProgressBar(score, max = 10) {
+      const filled = Math.max(0, Math.min(10, Math.round((score / max) * 10)));
+      return "🟩".repeat(filled) + "⬜".repeat(10 - filled);
+    }
+
+    function finishTest() {
+      const total = activeQuestions.length;
+      let correct = 0;
+      let wrong = 0;
+      let blank = 0;
+      const missedList = [];
+      const letters = ["A", "B", "C", "D"];
+
+      activeQuestions.forEach((item, idx) => {
+        const chosen = userAnswers[idx];
+        if (chosen === undefined) {
+          blank++;
+          missedList.push(`\`#${item.num}\` *(Sin responder)* — ${item.q.slice(0, 62)}${item.q.length > 62 ? "..." : ""}`);
+        } else if (chosen === item.a) {
+          correct++;
+        } else {
+          wrong++;
+          missedList.push(`\`#${item.num}\` *(Marcó ${letters[chosen]}, era ${letters[item.a]})* — ${item.q.slice(0, 52)}${item.q.length > 52 ? "..." : ""}`);
+        }
+      });
+
+      const score = Number(((correct / total) * 10).toFixed(2));
+      const passed = score >= PASS_MARK;
+      const elapsed = formatDuration(Date.now() - testStartTime);
+      const nowStr = new Date().toLocaleString("es-ES");
+      const unixNow = Math.floor(Date.now() / 1000);
+
+      saveHistoryItem({
+        id: Date.now(),
+        testNum: currentTestNum,
+        score,
+        correct,
+        wrong,
+        blank,
+        total,
+        passed,
+        duration: elapsed,
+        date: nowStr
+      });
+
+      const circle = document.getElementById("resCircle");
+      circle.className = "score-circle " + (passed ? "pass" : "fail");
+      document.getElementById("resScore").textContent = score.toFixed(1);
+
+      const tag = document.getElementById("resStatusTag");
+      tag.className = "status-tag " + (passed ? "pass" : "fail");
+      tag.textContent = passed ? "✅ EXAMEN APROBADO (≥ 8,0)" : "❌ EXAMEN SUSPENSO (< 8,0)";
+
+      document.getElementById("resHeading").textContent = `Resultado del TEST ${currentTestNum}`;
+      document.getElementById("resSubtext").textContent = passed
+        ? `¡Excelente trabajo! Has superado la nota de corte de 8,0 con ${correct} aciertos de ${total}.`
+        : `Has obtenido ${score.toFixed(2)} puntos. Necesitas al menos 8,0 (20 aciertos) para aprobar.`;
+
+      document.getElementById("resCorrect").textContent = correct;
+      document.getElementById("resWrong").textContent = wrong;
+      document.getElementById("resBlank").textContent = blank;
+      document.getElementById("resTime").textContent = elapsed;
+
+      const revContainer = document.getElementById("reviewContainer");
+      revContainer.innerHTML = activeQuestions.map((item, idx) => {
+        const chosen = userAnswers[idx];
+        const isOk = chosen === item.a;
+        const userText = chosen !== undefined ? `${letters[chosen]}) ${item.opts[chosen]}` : "Sin responder";
+        const rightText = `${letters[item.a]}) ${item.opts[item.a]}`;
+        return `
+          <div class="review-item ${isOk ? "ok" : "bad"}">
+            <div style="font-weight:700; margin-bottom:4px;">${isOk ? "✅" : "❌"} Pregunta #${item.num}: ${item.q}</div>
+            <div class="review-ans">
+              <div style="color:${isOk ? "#10b981" : "#ef4444"};">Tu respuesta: <strong>${userText}</strong></div>
+              ${!isOk ? `<div style="color:#10b981;">Respuesta correcta: <strong>${rightText}</strong></div>` : ""}
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      const accuracyPct = Math.round((correct / total) * 100);
+      const embedColor = passed ? 0x10b981 : (score >= 6.0 ? 0xf59e0b : 0xef4444);
+      const tierLabel = score >= 9.5 ? "🏆 Sobresaliente Alto" : passed ? "🌟 Aprobado (Corte ≥ 8,0)" : score >= 6.0 ? "⚠️ Cerca del aprobado" : "🚨 Necesita repaso";
+      const missingPts = passed ? "Superado con éxito" : `Faltaron **${(PASS_MARK - score).toFixed(2)} pts** (${Math.max(0, 20 - correct)} aciertos)`;
+
+      const fields = [
+        {
+          name: "📊 Calificación y Barra de Progreso",
+          value: `${buildProgressBar(score)} **${score.toFixed(2)} / 10** (${accuracyPct}%)\nEstado: **${passed ? "APROBADO ✅" : "SUSPENSO ❌"}** • ${tierLabel}`,
+          inline: false
+        },
+        { name: "✅ Aciertos", value: `**${correct}** / ${total}`, inline: true },
+        { name: "❌ Fallos", value: `**${wrong}**`, inline: true },
+        { name: "⚪ En blanco", value: `**${blank}**`, inline: true },
+        { name: "⏱️ Tiempo empleado", value: `\`${elapsed}\``, inline: true },
+        { name: "🎯 Objetivo (8,0)", value: missingPts, inline: true },
+        { name: "📅 Fecha y hora", value: `<t:${unixNow}:f>`, inline: true }
+      ];
+
+      if (missedList.length > 0) {
+        const preview = missedList.slice(0, 8).join("\n") + (missedList.length > 8 ? `\n*...y ${missedList.length - 8} preguntas más para repasar.*` : "");
+        fields.push({
+          name: `🔍 Preguntas a repasar (${missedList.length})`,
+          value: preview.slice(0, 1020),
+          inline: false
+        });
+      }
+
+      sendWebhook({
+        username: "Evaluador • 1º CFME Electricidad",
+        embeds: [{
+          author: { name: "1º CFME • Sistemas de Carga y Arranque • Tema 2 (200 Preg.)" },
+          title: `${passed ? "🎓" : "📘"} Resultado Oficial — TEST ${currentTestNum}`,
+          description: `Simulacro completado sobre **Leyes de la Electricidad y Electromagnetismo** (25 preguntas aleatorias).`,
+          color: embedColor,
+          fields,
+          footer: { text: "Simulador Tema 2 • Nota mínima de aprobado: 8,0 / 10" },
+          timestamp: new Date().toISOString()
+        }]
+      });
+
+      switchView("view-result");
+    }
+
+    function runFiveSecondModal(title, subtitle, onDone) {
+      const modal = document.getElementById("loadingModal");
+      const titleEl = document.getElementById("modalTitle");
+      const subEl = document.getElementById("modalSubtitle");
+      const fillEl = document.getElementById("modalProgressFill");
+      const countEl = document.getElementById("modalCountdown");
+
+      titleEl.textContent = title;
+      subEl.textContent = subtitle;
+      fillEl.style.width = "0%";
+      countEl.textContent = "5.0s";
+      modal.classList.add("active");
+
+      const totalMs = 5000;
+      const start = Date.now();
+
+      const timer = setInterval(() => {
+        const elapsed = Date.now() - start;
+        const pct = Math.min(100, (elapsed / totalMs) * 100);
+        const rem = Math.max(0, (totalMs - elapsed) / 1000);
+        fillEl.style.width = `${pct}%`;
+        countEl.textContent = `${rem.toFixed(1)}s`;
+
+        if (elapsed >= totalMs) {
+          clearInterval(timer);
+          modal.classList.remove("active");
+          onDone();
+        }
+      }, 80);
+    }
+
+    function openHistoryWithDelay() {
+      runFiveSecondModal(
+        "Estamos comprobando su historial",
+        "Analizando todos los tests realizados y sincronizando registros...",
+        () => {
+          const history = getHistory();
+          renderHistory();
+
+          const totalAttempts = history.length;
+          const passedCount = history.filter(h => h.passed).length;
+          const failedCount = totalAttempts - passedCount;
+          const unixNow = Math.floor(Date.now() / 1000);
+
+          let listText = "_Todavía no hay tests registrados en el historial._";
+          if (totalAttempts > 0) {
+            listText = history.slice(0, 10).map((h, i) => {
+              const icon = h.passed ? "✅" : "❌";
+              return `${icon} **#${totalAttempts - i} • TEST ${h.testNum}** — Nota: **${h.score.toFixed(2)}/10** (${h.correct}/${h.total} aciertos • \`${h.duration || "--:--"}\`)`;
+            }).join("\n");
+            if (totalAttempts > 10) {
+              listText += `\n*...y ${totalAttempts - 10} intentos anteriores.*`;
+            }
+          }
+
+          sendWebhook({
+            username: "Historial • 1º CFME Electricidad",
+            embeds: [{
+              author: { name: "1º CFME • Sistemas de Carga y Arranque • Tema 2 (200 Preg.)" },
+              title: "📜 Consulta de Historial de Tests",
+              description: `Se ha comprobado el registro completo de simulacros (<t:${unixNow}:R>).`,
+              color: 0x4f46e5,
+              fields: [
+                { name: "🗂️ Total realizados", value: `**${totalAttempts}** tests`, inline: true },
+                { name: "✅ Aprobados (≥ 8,0)", value: `**${passedCount}**`, inline: true },
+                { name: "❌ Suspensos (< 8,0)", value: `**${failedCount}**`, inline: true },
+                { name: "📋 Últimos intentos registrados", value: listText.slice(0, 1020), inline: false }
+              ],
+              footer: { text: "Simulador Tema 2 • Registro de Historial" },
+              timestamp: new Date().toISOString()
+            }]
+          });
+
+          switchView("view-history");
+        }
+      );
+    }
+
+    function renderHistory() {
+      const history = getHistory();
+      const container = document.getElementById("historyContent");
+      if (history.length === 0) {
+        container.innerHTML = `<p style="color:var(--text-muted); padding:20px 0; text-align:center;">Aún no has completado ningún test. ¡Empieza por el TEST 1 desde el menú principal!</p>`;
+        return;
+      }
+
+      container.innerHTML = `
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Bloque</th>
+                <th>Nota</th>
+                <th>Aciertos</th>
+                <th>Tiempo</th>
+                <th>Estado</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${history.map((h, i) => `
+                <tr>
+                  <td>${history.length - i}</td>
+                  <td><strong>TEST ${h.testNum}</strong></td>
+                  <td><strong>${h.score.toFixed(2)}</strong> / 10</td>
+                  <td>${h.correct} / ${h.total}</td>
+                  <td>${h.duration || "--:--"}</td>
+                  <td><span class="${h.passed ? "pill-pass" : "pill-fail"}">${h.passed ? "APROBADO" : "SUSPENSO"}</span></td>
+                  <td style="color:var(--text-muted); font-size:13px;">${h.date}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function openAverageWithDelay() {
+      runFiveSecondModal(
+        "Estamos calculando la media",
+        "Procesando calificaciones globales y estadísticas de los 8 bloques...",
+        () => {
+          const history = getHistory();
+          const stats = computeStats(history);
+          renderAverage(stats);
+
+          const unixNow = Math.floor(Date.now() / 1000);
+          const avgPass = stats.avg >= PASS_MARK;
+
+          const blockLines = [1, 2, 3, 4, 5, 6, 7, 8].map(n => {
+            const b = stats.byBlock[n];
+            if (b.count === 0) return `⏳ **TEST ${n}:** Sin intentos registrados`;
+            const st = b.avg >= PASS_MARK ? "✅ Aprobado" : "⚠️ Bajo corte";
+            return `${b.avg >= PASS_MARK ? "✅" : "🔸"} **TEST ${n}:** Media **${b.avg.toFixed(2)}/10** *(Mejor: ${b.best.toFixed(2)} • ${b.count} int.)* — ${st}`;
+          }).join("\n");
+
+          sendWebhook({
+            username: "Estadísticas • 1º CFME Electricidad",
+            embeds: [{
+              author: { name: "1º CFME • Sistemas de Carga y Arranque • Tema 2 (200 Preg.)" },
+              title: "📊 Informe de Nota Media Total",
+              description: `Cálculo global actualizado (<t:${unixNow}:R>).`,
+              color: stats.count === 0 ? 0x64748b : (avgPass ? 0x10b981 : 0xf59e0b),
+              fields: [
+                {
+                  name: "🎯 Nota Media Global",
+                  value: stats.count === 0
+                    ? "Sin datos disponibles todavía"
+                    : `${buildProgressBar(stats.avg)} **${stats.avg.toFixed(2)} / 10** (${avgPass ? "APROBADO ✅" : "POR DEBAJO DE 8,0 ⚠️"})`,
+                  inline: false
+                },
+                { name: "📝 Tests realizados", value: `**${stats.count}**`, inline: true },
+                { name: "🏆 Mejor nota", value: stats.count ? `**${stats.best.toFixed(2)}**` : "-", inline: true },
+                { name: "📈 Tasa de aprobados", value: stats.count ? `**${stats.passRate}%** (${stats.passed}/${stats.count})` : "-", inline: true },
+                { name: "📚 Rendimiento por Bloque (Test 1 – 8)", value: blockLines, inline: false }
+              ],
+              footer: { text: "Simulador Tema 2 • Nota mínima exigida: 8,0 / 10" },
+              timestamp: new Date().toISOString()
+            }]
+          });
+
+          switchView("view-average");
+        }
+      );
+    }
+
+    function computeStats(history) {
+      const count = history.length;
+      const byBlock = {
+        1: { count: 0, sum: 0, best: 0, avg: 0 },
+        2: { count: 0, sum: 0, best: 0, avg: 0 },
+        3: { count: 0, sum: 0, best: 0, avg: 0 },
+        4: { count: 0, sum: 0, best: 0, avg: 0 },
+        5: { count: 0, sum: 0, best: 0, avg: 0 },
+        6: { count: 0, sum: 0, best: 0, avg: 0 },
+        7: { count: 0, sum: 0, best: 0, avg: 0 },
+        8: { count: 0, sum: 0, best: 0, avg: 0 }
+      };
+      if (count === 0) return { count: 0, avg: 0, best: 0, worst: 0, passed: 0, passRate: 0, byBlock };
+
+      let sum = 0;
+      let best = 0;
+      let worst = 10;
+      let passed = 0;
+
+      history.forEach(h => {
+        sum += h.score;
+        if (h.score > best) best = h.score;
+        if (h.score < worst) worst = h.score;
+        if (h.passed) passed++;
+        const b = byBlock[h.testNum];
+        if (b) {
+          b.count++;
+          b.sum += h.score;
+          if (h.score > b.best) b.best = h.score;
+        }
+      });
+
+      [1, 2, 3, 4, 5, 6, 7, 8].forEach(n => {
+        if (byBlock[n].count > 0) byBlock[n].avg = byBlock[n].sum / byBlock[n].count;
+      });
+
+      return {
+        count,
+        avg: sum / count,
+        best,
+        worst,
+        passed,
+        passRate: Math.round((passed / count) * 100),
+        byBlock
+      };
+    }
+
+    function renderAverage(stats) {
+      const container = document.getElementById("averageContent");
+      if (stats.count === 0) {
+        container.innerHTML = `<p style="color:var(--text-muted); padding:20px 0; text-align:center;">No hay tests realizados todavía para calcular la nota media.</p>`;
+        return;
+      }
+
+      const avgPass = stats.avg >= PASS_MARK;
+      container.innerHTML = `
+        <div class="result-banner" style="margin-bottom:20px;">
+          <div class="score-circle ${avgPass ? "pass" : "fail"}">
+            <span class="score-val">${stats.avg.toFixed(2)}</span>
+            <span class="score-max">Media / 10</span>
+          </div>
+          <div class="status-tag ${avgPass ? "pass" : "fail"}">
+            ${avgPass ? "✅ MEDIA APROBADA (≥ 8,0)" : "⚠️ MEDIA INFERIOR A 8,0"}
+          </div>
+          <div class="stats-row">
+            <div class="stat-box"><div class="num">${stats.count}</div><div class="lbl">Tests realizados</div></div>
+            <div class="stat-box"><div class="num" style="color:#10b981;">${stats.best.toFixed(2)}</div><div class="lbl">Mejor nota</div></div>
+            <div class="stat-box"><div class="num" style="color:#ef4444;">${stats.worst.toFixed(2)}</div><div class="lbl">Nota más baja</div></div>
+            <div class="stat-box"><div class="num" style="color:var(--primary);">${stats.passRate}%</div><div class="lbl">Tasa aprobados</div></div>
+          </div>
+        </div>
+
+        <h3 style="font-size:16px; margin-bottom:12px;">Desglose por bloque (Tests 1 al 8)</h3>
+        <div class="tests-grid">
+          ${[1, 2, 3, 4, 5, 6, 7, 8].map(n => {
+            const b = stats.byBlock[n];
+            return `
+              <div class="stat-box">
+                <div style="font-weight:800; margin-bottom:6px;">TEST ${n}</div>
+                <div style="font-size:22px; font-weight:800; color:${b.count === 0 ? "var(--text-muted)" : (b.avg >= PASS_MARK ? "#10b981" : "#f59e0b")};">
+                  ${b.count === 0 ? "--" : b.avg.toFixed(2)}
+                </div>
+                <div style="font-size:12.5px; color:var(--text-muted); margin-top:4px;">
+                  ${b.count === 0 ? "Sin realizar" : `${b.count} intento(s) • Mejor: ${b.best.toFixed(2)}`}
+                </div>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      `;
+    }
+
+    loadVisualPrefs();
+  </script>
+</body>
+</html>
